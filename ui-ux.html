@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title>User Interfaces | Meteor Guide</title>
+    <meta name="description" content="General tips for structuring your UI code, independent of your view rendering technology.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://guide.meteor.com">
+    <meta property="og:title" content="User Interfaces | Meteor Guide">
+    <meta property="og:description" content="General tips for structuring your UI code, independent of your view rendering technology.">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@meteor">
+    <meta name="twitter:title" content="User Interfaces | Meteor Guide">
+    <meta name="twitter:description" content="General tips for structuring your UI code, independent of your view rendering technology.">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body class="">
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      <a class="logo-wrapper" href="http://www.meteor.com/developers" title="Meteor Developers Developers"  >
+        <img src="../images/logo-coralspace-left.svg" alt="Meteor Developers" class="logo"/>
+        <span>Developers</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop active ">
+        <a class="link" href="http://guide.meteor.com"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://docs.meteor.com"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="http://www.meteor.com/developers" title="Meteor Developers"  >
+        <span>Meteor Developers Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="http://guide.meteor.com"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://docs.meteor.com"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Meteor Guide</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="v1.4">1.4</option>
+            
+              <option value="v1.3">1.3</option>
+            
+              <option value="v1.2">1.2</option>
+            
+          </select>
+        </span>
+      
+    </div>
+
+    
+    <div class="wrapper-search">
+      <div class="input-symbol small round">
+        <input type="text" placeholder="Search The Official Guide" id="desktop-search-input" />
+        <span class="icon-search"></span>
+      </div>
+      <div class="wrapper-desktop-search-results"></div>
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
+                  <span>Introduction</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="code-style.html" class="sidebar-link ">
+                  <span>Code Style</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="structure.html" class="sidebar-link ">
+                  <span>Application Structure</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="1.4-migration.html" class="sidebar-link ">
+                  <span>Migrating to Meteor 1.4</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="1.3-migration.html" class="sidebar-link ">
+                  <span>Migrating to Meteor 1.3</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Data</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="collections.html" class="sidebar-link ">
+                  <span>Collections and Schemas</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="data-loading.html" class="sidebar-link ">
+                  <span>Publications and Data Loading</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="methods.html" class="sidebar-link ">
+                  <span>Methods</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts.html" class="sidebar-link ">
+                  <span>Users and Accounts</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="testing.html" class="sidebar-link ">
+                  <span>Testing</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">View</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="routing.html" class="sidebar-link ">
+                  <span>URLs and Routing</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>User Interfaces</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="blaze.html" class="sidebar-link ">
+                  <span>Blaze</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="react.html" class="sidebar-link ">
+                  <span>React</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="angular.html" class="sidebar-link ">
+                  <span>Angular</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Build</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="atmosphere-vs-npm.html" class="sidebar-link ">
+                  <span>Atmosphere vs. npm</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="using-atmosphere-packages.html" class="sidebar-link ">
+                  <span>Using Atmosphere Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="writing-atmosphere-packages.html" class="sidebar-link ">
+                  <span>Writing Atmosphere Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="using-npm-packages.html" class="sidebar-link ">
+                  <span>Using npm Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="writing-npm-packages.html" class="sidebar-link ">
+                  <span>Writing npm Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mobile.html" class="sidebar-link ">
+                  <span>Mobile</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="build-tool.html" class="sidebar-link ">
+                  <span>Build System</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Production</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="security.html" class="sidebar-link ">
+                  <span>Security</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="deployment.html" class="sidebar-link ">
+                  <span>Deployment and Monitoring</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Meta</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="CONTRIBUTING.html" class="sidebar-link ">
+                  <span>Contribution Guidelines</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="CHANGELOG.html" class="sidebar-link ">
+                  <span>Changelog</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">User Interfaces</h1>
+      
+        <div class="subtitle-page">General tips for structuring your UI code, independent of your view rendering technology.</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/meteor/guide/tree/master/content/ui-ux.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          
+            <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/19665"><span class="icon-comment"></span> <span>Discuss</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>After reading this guide, you’ll know:</p>
+<ol>
+<li>How to build reusable client side components in any user interface framework.</li>
+<li>How to build a style guide to allow you to visually test such reusable components.</li>
+<li>Patterns for building front end components in a performant way in Meteor.</li>
+<li>How to build user interfaces in a maintainable and extensible way.</li>
+<li>How to build components that can cope with a variety of different data sources.</li>
+<li>How to use animation to keep users informed of changes.</li>
+</ol>
+<h2 id="view-layers">View layers</h2>
+
+<p>Meteor officially supports three user interface (UI) rendering libraries, <a href="blaze.html">Blaze</a>, <a href="react.html">React</a> and <a href="http://www.angular-meteor.com" target="_blank" rel="external">Angular</a>. Blaze was created as part of Meteor when it launched in 2011, React was created by Facebook in 2013, and Angular was created by Google in 2010. All three have been used successfully by large production apps. Blaze is the easiest to learn and has the most full-stack Meteor packages, but React and Angular are more developed and have larger communities.</p>
+<h3 id="syntax">Syntax</h3>
+
+<ul>
+<li>Blaze uses an easy-to-learn <a href="http://handlebarsjs.com" target="_blank" rel="external">Handlebars</a>-like template syntax, with logic like <code>{{#if}}</code> and <code>{{#each}}</code> interspersed in your HTML files. Template functions and CSS-selector events maps are written in JavaScript files.</li>
+<li>React uses <a href="https://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank" rel="external">JSX</a>, with which you write your HTML in JavaScript. While it doesn’t have the logic-view separation most libraries have, it also has the most flexibility. Template functions and event handlers are defined in the same file as the HTML part of the component, which usually makes it easier to understand how they are tied together.</li>
+<li>Angular uses HTML with <a href="https://angular.io/docs/ts/latest/guide/cheatsheet.html" target="_blank" rel="external">special attribute syntax</a> for logic and events. Template helpers are written in the accompanying JavaScript file along with events, which are called by name from inside HTML attributes.</li>
+<li>React and Angular enforce a better component structure, which makes developing larger apps easier. (Although you can add component structure to Blaze by <a href="blaze.html#reusable-components">following conventions</a> or using the <a href="http://components.meteorapp.com/" target="_blank" rel="external">Blaze Components</a> or <a href="https://viewmodel.org/" target="_blank" rel="external">ViewModel</a> packages.)</li>
+</ul>
+<h3 id="community">Community</h3>
+
+<ul>
+<li>Blaze has many full-stack Meteor packages on Atmosphere, such as <a href="https://atmospherejs.com/useraccounts/core" target="_blank" rel="external"><code>useraccounts:core</code></a> and <a href="https://atmospherejs.com/aldeed/autoform" target="_blank" rel="external"><code>aldeed:autoform</code></a>.</li>
+<li>React has 42k stars on Github and 13k npm libraries.</li>
+<li>Angular has 12k stars on Github and 4k npm libraries.</li>
+</ul>
+<h3 id="performance">Performance</h3>
+
+<ul>
+<li>Render performance varies a lot depending on the situation. All three libraries are very quick at rendering simple apps, but can take a noticeable amount of time with more complex apps.</li>
+<li>Angular and React have had more performance optimization work put into them than Blaze and in general will perform better. However, there are some cases when Blaze does better (for instance an <code>{{#each}}</code> over a changing cursor).</li>
+<li><a href="http://info.meteor.com/blog/comparing-performance-of-blaze-react-angular-meteor-and-angular-2-with-meteor" target="_blank" rel="external">One test</a> benchmarks Angular 2 as the best, followed by React and Angular 1, followed by Blaze.</li>
+</ul>
+<h3 id="mobile">Mobile</h3>
+
+<ul>
+<li><strong>Cordova</strong><ul>
+<li>All three libraries work fine in a Cordova web view, and you can use mobile CSS libraries like Ionic’s CSS with any view library.</li>
+<li>The most advanced mobile web framework is <a href="http://ionicframework.com/docs/v2/" target="_blank" rel="external">Ionic 2</a>, which uses Angular 2.</li>
+<li>Ionic 1 uses Angular 1, but there are also <a href="http://meteoric.github.io//" target="_blank" rel="external">Blaze</a> and <a href="http://reactionic.github.io/" target="_blank" rel="external">React</a> ports.</li>
+<li>Another good option is <a href="https://onsen.io/v2/" target="_blank" rel="external">Onsen UI</a>, which includes a <a href="https://onsen.io/v2/docs/guide/react/" target="_blank" rel="external">React version</a>.</li>
+</ul>
+</li>
+<li><strong>Native</strong><ul>
+<li>You can connect any native iOS or Android app to a Meteor server via <a href="https://www.meteor.com/ddp" target="_blank" rel="external">DDP</a>. For iOS, use the <a href="https://github.com/martijnwalraven/meteor-ios" target="_blank" rel="external"><code>meteor-ios</code></a> framework.</li>
+<li>You can write apps with native UI elements in JavaScript using <a href="https://facebook.github.io/react-native/" target="_blank" rel="external">React Native</a>. For the most recent information on how to use React Native with Meteor, see <a href="https://github.com/spencercarli/react-native-meteor-index" target="_blank" rel="external">this reference</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="components">UI components</h2>
+
+<p>Regardless of the view layer that you are using, there are some patterns in how you build your User Interface (UI) that will help make your app’s code easier to understand, test, and maintain. These patterns, much like general patterns of modularity, revolve around making the interfaces to your UI elements very clear and avoiding using techniques that bypass these known interfaces.</p>
+<p>In this article, we’ll refer to the elements in your user interface as “components”. Although in some systems, you may refer to them as “templates”, it can be a good idea to think of them as something more like a component, which has an API and internal logic, rather than a template, which is just a bit of HTML.</p>
+<p>To begin with, let’s consider two categories of UI components that are useful to think about, “reusable” and “smart”:</p>
+<h3 id="reusable-components">Reusable components</h3>
+
+<p>A “reusable” component is a component which doesn’t rely on anything from the environment it renders in. It renders purely based on its direct inputs (its <em>template arguments</em> in Blaze, or <em>props</em> in React) and internal state.</p>
+<p>In Meteor specifically, this means a component which does not access data from any global sources—Collections, Stores, routers, user data, or similar. For instance, in the Todos example app, the <code>Lists_show</code> template takes in the list it is rendering and the set of todos for that list, and it never looks directly in the <code>Todos</code> or <code>Lists</code> collections.</p>
+<p>Reusable components have many advantages:</p>
+<ol>
+<li><p>They are easy to reason about—you don’t need to understand how the data in the global store changes, simply how the arguments to the component change.</p>
+</li>
+<li><p>They are easy to test—you don’t need to be careful about the environment you render them in, all you need to do is provide the right arguments.</p>
+</li>
+<li><p>They are easy to add to component style guides—as we’ll see in the section about <a href="#styleguides">component style guides</a>, when creating a style guide, a clean environment makes things much easier to work with.</p>
+</li>
+<li><p>You know exactly what dependencies you need to provide for them to work in different environments.</p>
+<p>There’s also an even more restricted type of reusable component, a “pure” component, which does not have any internal state. For instance in the Todos app, the <code>Todos_item</code> template decides what to render solely based on its arguments. Pure components are even easier to reason about and test than reusable ones and so should be preferred wherever possible.</p>
+</li>
+</ol>
+<h3 id="global-stores">Global data stores</h3>
+
+<p>So which are the global data stores that you should be avoiding in reusable components? There are a few. Meteor is built to optimize speed of development, which means you can access a lot of things globally. Although this is convenient when building “smart” components (see below), you’ll need to avoid these data sources in reusable components:</p>
+<ul>
+<li>Your collections, as well as the <code>Meteor.users</code> collection,</li>
+<li>Accounts information, like <code>Meteor.user()</code> and <code>Meteor.loggingIn()</code></li>
+<li>Current route information</li>
+<li>Any other client-side data stores (read more in the <a href="data-loading.html#stores">Data Loading article</a>)</li>
+</ul>
+<h3 id="smart-components">Smart components</h3>
+
+<p>While most of the components in your app should be reusable, they need to get their data passed in from somewhere. This is where “smart” components come in. Such components typically do the following things:</p>
+<ol>
+<li>Subscribe to data</li>
+<li>Fetch data from those subscriptions</li>
+<li>Fetch global client-side state from stores such as the Router, Accounts, and your own stores</li>
+</ol>
+<p>Ideally, once a smart component has assembled such a set of data, it passes it off to a reusable component child to render with. Smart components usually don’t render anything apart from one or more reusable children. This makes it easy to separate rendering and data loading in your tests.</p>
+<p>A typical use case for a smart component is the “page” component that the router points you to when you access a URL. Such a component typically needs to do the three things above and then can pass the resulting arguments into child components. In the Todos example app, the <code>listShowPage</code> does exactly this, resulting in a template with very simple HTML:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"Lists_show_page"</span>&gt;</span></span><br><span class="line">  &#123;&#123;#each listId in listIdArray&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; Lists_show (listArgs listId)&#125;&#125;</span><br><span class="line">  &#123;&#123;else&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; App_notFound&#125;&#125;</span><br><span class="line">  &#123;&#123;/each&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The JavaScript of this component is responsible for subscribing and fetching the data that’s used by the <code>Lists_show</code> template itself:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Template.Lists_show_page.onCreated(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.getListId = <span class="function"><span class="params">()</span> =&gt;</span> FlowRouter.getParam(<span class="string">'_id'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.autorun(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.subscribe(<span class="string">'todos.inList'</span>, <span class="keyword">this</span>.getListId());</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Template.Lists_show_page.helpers(&#123;</span><br><span class="line">  <span class="comment">// We use #each on an array of one item so that the "list" template is</span></span><br><span class="line">  <span class="comment">// removed and a new copy is added when changing lists, which is</span></span><br><span class="line">  <span class="comment">// important for animation purposes.</span></span><br><span class="line">  listIdArray() &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = Template.instance();</span><br><span class="line">    <span class="keyword">const</span> listId = instance.getListId();</span><br><span class="line">    <span class="keyword">return</span> Lists.findOne(listId) ? [listId] : [];</span><br><span class="line">  &#125;,</span><br><span class="line">  listArgs(listId) &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = Template.instance();</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">todosReady</span>: instance.subscriptionsReady(),</span><br><span class="line">      <span class="comment">// We pass `list` (which contains the full list, with all fields, as a function</span></span><br><span class="line">      <span class="comment">// because we want to control reactivity. When you check a todo item, the</span></span><br><span class="line">      <span class="comment">// `list.incompleteCount` changes. If we didn't do this the entire list would</span></span><br><span class="line">      <span class="comment">// re-render whenever you checked an item. By isolating the reactiviy on the list</span></span><br><span class="line">      <span class="comment">// to the area that cares about it, we stop it from happening.</span></span><br><span class="line">      list() &#123;</span><br><span class="line">        <span class="keyword">return</span> Lists.findOne(listId);</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// By finding the list with only the `_id` field set, we don't create a dependency on the</span></span><br><span class="line">      <span class="comment">// `list.incompleteCount`, and avoid re-rendering the todos when it changes</span></span><br><span class="line">      todos: Lists.findOne(listId, &#123;<span class="attr">fields</span>: &#123;<span class="attr">_id</span>: <span class="literal">true</span>&#125;&#125;).todos()</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="styleguides">Visually testing reusable components</h2>
+
+<p>A useful property of reusable components is that you can render them anywhere because they don’t rely on complicated environments. This is very useful when paired with component explorers, debug-only apps that allow you to explore, visualize, and test your UI components.</p>
+<p><img src="images/chromatic-how-it-works.png"></p>
+<p>A component explorer does two things:</p>
+<ol>
+<li><b>Indexes</b> your apps components so they are easy to find</li>
+<li><b>Renders</b> components using developer-defined states and stubbed data</li>
+</ol>
+<p>For instance, in Galaxy, we use a component explorer called Chromatic to render each component one specification at a time or with all specifications at once.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SRXvg-_Suo0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>Using Chromatic enables rapid development of complex components. Typically in a large application, it can be quite difficult to achieve certain states of components purely by “using” the application. For example, a component in Galaxy can enter a complex state if two deploys of the same app happen simultaneously. With Chromatic we’re able to define this state at the component level and test it independently of the application logic.</p>
+<p>You can use <a href="https://github.com/meteor/chromatic" target="_blank" rel="external">Chromatic component explorer</a> in your Meteor + React app with <code>meteor add mdg:chromatic</code>. Similar projects built in React are <a href="http://www.uiharness.com/" target="_blank" rel="external">UI Harness</a> by Phil Cockfield and <a href="https://github.com/kadirahq/react-storybook" target="_blank" rel="external">React Storybook</a> by Arunoda Susiripala.</p>
+<h2 id="ui-patterns">User interface patterns</h2>
+
+<p>Here are some patterns that are useful to keep in mind when building the user interface of your Meteor application.</p>
+<h3 id="i18n">Internationalization</h3>
+
+<p>Internationalization (i18n) is the process of generalizing the UI of your app in such a way that it’s easy to render all text in a different language. Meteor’s package ecosystem includes internationalization options tailored to your frontend framework of choice.</p>
+<h4 id="places-to-i18n">Places to translate</h4>
+
+<p>It’s useful to consider the various places in the system that user-readable strings exist and make sure that you are properly using the i18n system to generate those strings in each case. We’ll go over the implementation for each case in the sections about <a href="#tap-i18n-js"><code>tap:i18n</code></a> and <a href="#universe-i18n"><code>universe:i18n</code></a> below.</p>
+<ol>
+<li><strong>HTML templates and components.</strong> This is the most obvious place—in the content of UI components that the user sees.</li>
+<li><strong>Client JavaScript messages.</strong> Alerts or other messages that are generated on the client side are shown to the user, and should also be translated.</li>
+<li><strong>Server JavaScript messages and emails.</strong> Messages or errors generated by the server can often be user visible. An obvious place is emails and any other server generated messages, such as mobile push notifications, but more subtle places are return values and error messages on method calls. Errors should be sent over the wire in a generic form and translated on the client.</li>
+<li><strong>Data in the database.</strong> A final place where you may want to translate is actual user-generated data in your database. For example, if you are running a wiki, you might want to have a mechanism for the wiki pages to be translated to different languages. How you go about this will likely be unique to your application.</li>
+</ol>
+<h4 id="tap-i18n-js">Using <code>tap:i18n</code> in JavaScript</h4>
+
+<p>In Meteor, <a href="https://atmospherejs.com/tap/i18n" target="_blank" rel="external">the excellent <code>tap:i18n</code> package</a> provides an API for building translations and using them in your components and frontend code.</p>
+<p>To use <code>tap:i18n</code>, first <code>meteor add tap:i18n</code> to add it to your app. Then we need to add a translation JSON file for our default language (<code>en</code> for English) – we can put it at <code>i18n/en.i18n.json</code>. Once we’ve done that we can import and use the <code>TAPi18n.__()</code> function to get translations for strings or keys within our JavaScript code.</p>
+<p>For instance for errors in the Todos example app, we create an <code>errors</code> module that allows us to easily alert a translated error for all of the errors that we can potentially throw from methods:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; TAPi18n &#125; <span class="keyword">from</span> <span class="string">'meteor/tap:i18n'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> displayError = <span class="function">(<span class="params">error</span>) =&gt;</span>  &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="comment">// It would be better to not alert the error here but inform the user in some</span></span><br><span class="line">    <span class="comment">// more subtle way</span></span><br><span class="line">    alert(TAPi18n.__(error.error));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>The <code>error.error</code> field is the first argument to the <code>Meteor.Error</code> constructor, and we use it to uniquely name and namespace all the errors we use in the application. We then define the English text of those errors in <code>i18n/en.i18n.json</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "lists": &#123;</span><br><span class="line">    "makePrivate": &#123;</span><br><span class="line">      "notLoggedIn": "Must be logged in to make private lists.",</span><br><span class="line">      "lastPublicList": "Cannot make the last public list private."</span><br><span class="line">    &#125;,</span><br><span class="line">    "makePublic": &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="tap-i18n-blaze">Using <code>tap:i18n</code> in Blaze</h4>
+
+<p>We can also easily use translations in Blaze templates. To do so, we can use the <code>{{_ }}</code> helper. In the Todos app we use the actual string that we want to output in English as the i18n key, which means we don’t need to provide an English translation, although perhaps in a real app you might want to provide keys from the beginning.</p>
+<p>For example in <code>app-not-found.html</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"App_notFound"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page not-found"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"js-menu nav-item"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-list-unordered"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-scrollable"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper-message"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title-message"</span>&gt;</span>&#123;&#123;_ 'Page not found'&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="tap-i18n-changing-language">Changing language</h4>
+
+<p>To set and change the language that a user is seeing, you should call <code>TAPi18n.setLanguage(fn)</code>, where <code>fn</code> is a (possibly reactive) function that returns the current language. For instance you could write</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A store to use for the current language</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> CurrentLanguage = <span class="keyword">new</span> ReactiveVar(<span class="string">'en'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> CurrentLanguage <span class="keyword">from</span> <span class="string">'../stores/current-language.js'</span>;</span><br><span class="line">TAPi18n.setLanguage(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  CurrentLanguage.get();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Then somewhere in your UI you can <code>CurrentLanguage.set(&#39;es&#39;)</code> when a user chooses a new language.</p>
+<h4 id="universe-i18n">Using <code>universe:i18n</code> in React</h4>
+
+<p>For React-based apps, the <a href="https://atmospherejs.com/universe/i18n" target="_blank" rel="external"><code>universe:18n</code> package</a> presents an alternative solution to <code>tap:i18n</code>. <code>universe:i18n</code> adopts similar conventions to <code>tap:i18n</code>, but also includes a convenient drop-in React component and omits <code>tap:i18n&#39;s</code> dependencies on Meteor’s <code>templating</code> and <code>jquery</code> packages. <code>universe:i18n</code> was intended for Meteor React applications using <code>ES2015</code> modules, but it can be used without React or modules.</p>
+<h4 id="universe-i18n-js">Using <code>universe:i18n</code> in JS</h4>
+
+<p>To get started, run <code>meteor add universe:i18n</code> to add it to your app. Add an English (<code>en-US</code>) translation file in <code>JSON</code> format to your app with the name <code>en-us.i18n.json</code>. Translation files can be identified by file name or with the <code>{&quot;_locale&quot;: &quot;en-US&quot;}</code> JSON property. The <code>YAML</code> file format is also supported.</p>
+<p>If your app uses <code>ES2015</code> modules included from <code>client/main.js</code> and <code>server/main.js</code> entry points, import your JSON file(s) there. The <code>i18n.__()</code> function will now locate keys you pass.</p>
+<p>Borrowing from the <code>tap:i18n</code> example <a href="#tap-i18n-js">above</a>, in <code>universe:i18n</code> our <code>displayError</code> function now looks like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> i18n <span class="keyword">from</span> <span class="string">'meteor/universe:i18n'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> displayError = <span class="function">(<span class="params">error</span>) =&gt;</span>  &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    alert(i18n.__(error.error));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>To change the user’s language, use <code>i18n.setLocale(&#39;en-US&#39;)</code>. <code>universe:i18n</code> allows retrieval of additional translations by method as well as including JSON files with a client bundle.</p>
+<h4 id="universe-i18n-react">Using <code>universe:i18n</code> in React components</h4>
+
+<p>To add reactive i18n inline in your React components, simply use the <code>i18n.createComponent()</code> function and pass it keys from your translation file. Here’s an example of a simple component wrapping i18n’s translation component:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React from 'react';</span><br><span class="line">import i18n from 'meteor/universe:i18n';</span><br><span class="line"></span><br><span class="line">const T = i18n.createComponent();</span><br><span class="line"></span><br><span class="line">// displays 'hello world!' where our en-us.i18n.json</span><br><span class="line">// has the key/value &#123; "hello": "hello world!" &#125;</span><br><span class="line"></span><br><span class="line">const Welcome = (props) =&gt; &lt;div&gt;</span><br><span class="line">  &lt;T&gt;hello&lt;/T&gt;</span><br><span class="line">&lt;/div&gt;;</span><br><span class="line"></span><br><span class="line">export default Welcome;</span><br></pre></td></tr></table></figure>
+<p>See the documentation for <a href="https://atmospherejs.com/universe/i18n" target="_blank" rel="external"><code>universe:i18n</code></a> for additional options and configuration.</p>
+<h3 id="event-handling">Event handling</h3>
+
+<p>A large part of your UI involves responding to events initated by the user, and there are some steps that you should take to make sure your application performs well in the face of rapid input. An application lagging in response to user actions is one of the most noticeable performance problems.</p>
+<h4 id="throttling-method-calls">Throttling method calls on user action</h4>
+
+<p>It’s typical to make some kind of change to the database when a user takes an action. However it’s important to make sure you don’t do this too rapidly. For instance, if you wish to save the user’s text as they type in a text box, you should take steps to make sure that you don’t send method calls to your server more than every few hundred milliseconds.</p>
+<p>If you do not, you’ll see performance problems across the board: you’ll be flooding the user’s network connection with a lot of small changes, the UI will update on every keystroke, potentially causing poor performance, and your database will suffer with a lot of writes.</p>
+<p>To throttle writes, a typical approach is to use underscore’s <a href="http://underscorejs.org/#throttle" target="_blank" rel="external"><code>.throttle()</code></a> or <a href="http://underscorejs.org/#debounce" target="_blank" rel="external"><code>.debounce()</code></a> functions. For instance, in the Todos example app, we throttle writes on user input to 300ms:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  updateText,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'../../api/todos/methods.js'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Template.Todos_item.events(&#123;</span><br><span class="line">  <span class="comment">// update the text of the item on keypress but throttle the event to ensure</span></span><br><span class="line">  <span class="comment">// we don't flood the server with updates (handles the event at most once</span></span><br><span class="line">  <span class="comment">// every 300ms)</span></span><br><span class="line">  <span class="string">'keyup input[type=text]'</span>: _.throttle(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    updateText.call(&#123;</span><br><span class="line">      <span class="attr">todoId</span>: <span class="keyword">this</span>.todo._id,</span><br><span class="line">      <span class="attr">newText</span>: event.target.value</span><br><span class="line">    &#125;, (err) =&gt; &#123;</span><br><span class="line">      err &amp;&amp; alert(err.error);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;, <span class="number">300</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Typically, you use <code>.throttle()</code> if you are OK with the event happening during the user series of actions (i.e. you don’t mind the multiple, throttled events happening over time, as in this case), whereas you use <code>.debounce()</code> if you want the events to happen whenever (in this example) the user stops typing for 300ms or longer.</p>
+<p><img src="images/throttle-vs-debounce.png"></p>
+<h4 id="limiting-re-rendering">Limiting re-rendering</h4>
+
+<p>Even if you aren’t saving data over the wire to the database on every user input, sometimes you still may wish to update in-memory data stores on every user change. If updating that data store triggers a lot of UI changes, you can see poor performance and missed keystrokes when you update it too often. In such cases you can limit re-rendering by throttling in a similar way how we throttled the method call above. You could also use <code>.debounce()</code> to ensure the changes happen only after the user has stopped typing.</p>
+<h2 id="ux-patterns">User experience patterns</h2>
+
+<p>User experience, or UX, describes the experience of a user as they interact with your application.  There are several UX patterns that are typical to most Meteor apps which are worth exploring here. Many of these patterns are tied to the way data is loaded as the user interacts with your app, so there are similar sections in the <a href="data-loading.html#patterns">data loading article</a> talking about how to implement these patterns using Meteor’s publications and subscriptions.</p>
+<h3 id="subscription-readiness">Subscription readiness</h3>
+
+<p>When you subscribe to data in Meteor, it does not become instantly available on the client. Typically the user will need to wait for a few hundred milliseconds, or as long as a few seconds (depending on the connection speed), for the data to arrive. This is especially noticeable when the app is first starting up or you move between screens that are displaying completely new data.</p>
+<p>There are a few UX techniques for dealing with this waiting period. The simplest is simply to switch out the page you are rendering with a generic “loading” page while you wait for all the data (typically a page may open several subscriptions) to load. As an example, in the Todos example app, we wait until all the public lists and the user’s private lists have loaded before we try to render the actual page:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#if Template.subscriptionsReady&#125;&#125;</span><br><span class="line">  &#123;&#123;&gt; Template.dynamic template=main&#125;&#125;</span><br><span class="line">&#123;&#123;else&#125;&#125;</span><br><span class="line">  &#123;&#123;&gt; App_loading&#125;&#125;</span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>We do this with Blaze’s <code>Template.subscriptionsReady</code> which is perfect for this purpose, as it waits for all the subscriptions that the current component has asked for to become ready.</p>
+<h4 id="per-component-loading">Per-component loading state</h4>
+
+<p>Usually it makes for a better UX to show as much of the screen as possible as quickly as possible and to only show loading state for the parts of the screen that are still waiting on data. So a nice pattern to follow is “per-component loading”. We do this in the Todos app when you visit the list page—we instantly render the list metadata, such as its title and privacy settings, and render a loading state for the list of todos while we wait for them to appear.</p>
+<p><img src="images/todos-loading.png"></p>
+<p>We achieve this by passing the readiness of the todos list down from the smart component which is subscribing (the <code>listShowPage</code>) into the reusable component which renders the data:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&gt; Lists_show todosReady=Template.subscriptionsReady list=list&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>And then we use that state to determine what to render in the reusable component (<code>listShow</code>):</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#if todosReady&#125;&#125;</span><br><span class="line">  &#123;&#123;#with list._id&#125;&#125;</span><br><span class="line">    &#123;&#123;#each todo in (todos this)&#125;&#125;</span><br><span class="line">      &#123;&#123;&gt; Todos_item (todoArgs todo)&#125;&#125;</span><br><span class="line">    &#123;&#123;else&#125;&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper-message"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title-message"</span>&gt;</span>No tasks here<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"subtitle-message"</span>&gt;</span>Add new tasks using the field above<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;&#123;/each&#125;&#125;</span><br><span class="line">  &#123;&#123;/with&#125;&#125;</span><br><span class="line">&#123;&#123;else&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper-message"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title-message"</span>&gt;</span>Loading tasks...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="loading-placeholders">Showing placeholders</h4>
+
+<p>You can take the above UI a step further by showing placeholders whilst you wait for the data to load. This is a UX pattern that has been pioneered by Facebook which gives the user a more solid impression of what data is coming down the wire. It also prevents parts of the UI from moving around when data loads, if you can make the placeholder have the same dimensions as the final element.</p>
+<p>For example, in Galaxy, while you wait for your app’s log to load, you see a loading state indicating what you might see:</p>
+<p><img src="images/galaxy-placeholders.png"></p>
+<h4 id="styleguide-and-loading">Using the style guide to prototype loading state</h4>
+
+<p>Loading states are notoriously difficult to work on visually as they are by definition transient and often are barely noticeable in a development environment where subscriptions load almost instantly.</p>
+<p>This is one reason why being able to achieve any state at will in the <a href="#styleguides">component style guide</a> is so useful. As our reusable component <code>Lists_show</code> simply chooses to render based on its <code>todosReady</code> argument and does not concern itself with a subscription, it is trivial to render its loading state in a style guide.</p>
+<h3 id="pagination">Pagination</h3>
+
+<p>In the <a href="data-loading.html#pagination">Data Loading article</a> we discuss a pattern of paging through an “infinite scroll” type subscription which loads one page of data at a time as a user scrolls down the page. It’s interesting to consider UX patterns to consume that data and indicate what’s happening to the user.</p>
+<h4 id="list-component">A list component</h4>
+
+<p>Let’s consider any generic item-listing component. To focus on a concrete example, we could consider the todo list in the Todos example app. Although it does not in our current example app, in a future version it could paginate through the todos for a given list.</p>
+<p>There are a variety of states that such a list can be in:</p>
+<ol>
+<li>Initially loading, no data available yet.</li>
+<li>Showing a subset of the items with more available.</li>
+<li>Showing a subset of the items with more loading.</li>
+<li>Showing <em>all</em> the items - no more available.</li>
+<li>Showing <em>no</em> items because none exist.</li>
+</ol>
+<p>It’s instructive to think about what arguments such a component would need to differentiate between those five states. Let’s consider a generic pattern that would work in all cases where we provide the following information:</p>
+<ul>
+<li>A <code>count</code> of the total number of items.</li>
+<li>A <code>countReady</code> boolean that indicates if we know that count yet (remember we need to load even that information).</li>
+<li>A number of items that we have <code>requested</code>.</li>
+<li>A list of <code>items</code> that we currently know about.</li>
+</ul>
+<p>We can now distinguish between the 5 states above based on these conditions:</p>
+<ol>
+<li><code>countReady</code> is false, or <code>count &gt; 0</code> and <code>items</code> is still empty. (These are actually two different states, but it doesn’t seem important to visually separate them).</li>
+<li><code>items.length === requested &amp;&amp; requested &lt; count</code></li>
+<li><code>0 &lt; items.length &lt; requested</code></li>
+<li><code>items.length === requested &amp;&amp; requested === count &amp;&amp; count &gt; 0</code></li>
+<li><code>count === 0</code></li>
+</ol>
+<p>You can see that although the situation is a little complex, it’s also completely determined by the arguments and thus very much testable. A component style guide helps immeasurably in seeing all these states easily! In Galaxy we have each state in our style guide for each of the lists of our app and we can ensure all work as expected and appear correctly:</p>
+<image src="images/galaxy-styleguide-list.png">
+
+<h4 id="pagination-controller">A pagination “controller” pattern</h4>
+
+<p>A list is also a good opportunity to understand the benefits of the smart vs reusable component split. We’ve seen above that correctly rendering and visualizing all the possible states of a list is non-trivial and is made much easier by having a reusable list component that takes all the required information in as arguments.</p>
+<p>However, we still need to subscribe to the list of items and the count, and collect that data somewhere. To do this, it’s sensible to use a smart wrapper component (analogous to an MVC “controller”) whose job it is to subscribe and fetch the relevant data.</p>
+<p>In the Todos example app, we already have a wrapping component for the list that talks to the router and sets up subscriptions. This component could easily be extended to understand pagination:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PAGE_SIZE = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">Template.Lists_show_page.onCreated(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// We use internal state to store the number of items we've requested</span></span><br><span class="line">  <span class="keyword">this</span>.state = <span class="keyword">new</span> ReactiveDict();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.getListId = <span class="function"><span class="params">()</span> =&gt;</span> FlowRouter.getParam(<span class="string">'_id'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.autorun(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// As the `requested` state increases, we re-subscribe to a greater number of todos</span></span><br><span class="line">    <span class="keyword">this</span>.subscribe(<span class="string">'List.todos'</span>, <span class="keyword">this</span>.getListId(), <span class="keyword">this</span>.state.get(<span class="string">'requested'</span>));</span><br><span class="line">    <span class="keyword">this</span>.countSub = <span class="keyword">this</span>.subscribe(<span class="string">'Lists.todoCount'</span>, <span class="keyword">this</span>.getListId());</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The `onNextPage` function is used to increment the `requested` state variable. It's passed</span></span><br><span class="line">  <span class="comment">// into the listShow subcomponent to be triggered when the user reaches the end of the visible todos</span></span><br><span class="line">  <span class="keyword">this</span>.onNextPage = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.state.set(<span class="string">'requested'</span>, <span class="keyword">this</span>.state.get(<span class="string">'requested'</span>) + PAGE_SIZE);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Template.Lists_show_page.helpers(&#123;</span><br><span class="line">  listArgs(listId) &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = Template.instance();</span><br><span class="line">    <span class="keyword">const</span> list = Lists.findOne(listId);</span><br><span class="line">    <span class="keyword">const</span> requested = instance.state.get(<span class="string">'requested'</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      list,</span><br><span class="line">      <span class="attr">todos</span>: list.todos(&#123;&#125;, &#123;<span class="attr">limit</span>: requested&#125;),</span><br><span class="line">      requested,</span><br><span class="line">      <span class="attr">countReady</span>: instance.countSub.ready(),</span><br><span class="line">      <span class="attr">count</span>: Counts.get(<span class="string">`list/todoCount<span class="subst">$&#123;listId&#125;</span>`</span>),</span><br><span class="line">      <span class="attr">onNextPage</span>: instance.onNextPage</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="patterns-for-new-data">UX patterns for displaying new data</h4>
+
+<p>An interesting UX challenge in a realtime system like Meteor involves how to bring new information (like changing data in a list) to the user’s attention. As <a href="http://blog.percolatestudio.com/design/design-for-realtime/" target="_blank" rel="external">Dominic</a> points out, it’s not always a good idea to simply update the contents of a list as quickly as possible, as it’s easy to miss changes or get confused about what’s happened.</p>
+<p>One solution to this problem is to <em>animate</em> list changes (which we’ll look at in the <a href="#animation">animation section</a>), but this isn’t always the best approach. For instance, if a user is reading a list of comments, they may not want to see any changes until they are done with the current comment thread.</p>
+<p>An option in this case is to call out that there are changes to the data the user is looking at without actually making UI updates. In a system like Meteor which is reactive by default, it isn’t necessarily easy to stop such changes from happening!</p>
+<p>However, it is possible to do this thanks to our split between smart and reusable components. The reusable component simply renders what it’s given, so we use our smart component to control that information. We can use a <a href="collections.html#local-collections"><em>local collection</em></a> to store the rendered data, and then push data into it when the user requests an update:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Template.Lists_show_page.onCreated(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// The visible todos are the todos that the user can</span></span><br><span class="line">  <span class="comment">// actually see on the screen (whereas Todos are the</span></span><br><span class="line">  <span class="comment">// todos that actually exist)</span></span><br><span class="line">  <span class="keyword">this</span>.visibleTodos = <span class="keyword">new</span> Mongo.Collection(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.getTodos = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> list = Lists.findOne(<span class="keyword">this</span>.getListId());</span><br><span class="line">    <span class="keyword">return</span> list.todos(&#123;&#125;, &#123;<span class="attr">limit</span>: instance.state.get(<span class="string">'requested'</span>)&#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">// When the user requests it, we should sync the visible todos to</span></span><br><span class="line">  <span class="comment">// reflect the true state of the world</span></span><br><span class="line">  <span class="keyword">this</span>.syncTodos = <span class="function">(<span class="params">todos</span>) =&gt;</span> &#123;</span><br><span class="line">    todos.forEach(<span class="function"><span class="params">todo</span> =&gt;</span> <span class="keyword">this</span>.visibleTodos.insert(todo));</span><br><span class="line">    <span class="keyword">this</span>.state.set(<span class="string">'hasChanges'</span>, <span class="literal">false</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.onShowChanges = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.syncTodos(<span class="keyword">this</span>.getTodos());</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.autorun(<span class="function">(<span class="params">computation</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> todos = <span class="keyword">this</span>.getTodos();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// If this autorun re-runs, the list id or set of todos must have</span></span><br><span class="line">    <span class="comment">// changed, so we should flag it to the user so they know there</span></span><br><span class="line">    <span class="comment">// are changes to be seen.</span></span><br><span class="line">    <span class="keyword">if</span> (!computation.firstRun) &#123;</span><br><span class="line">      <span class="keyword">this</span>.state.set(<span class="string">'hasChanges'</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.syncTodos(todos);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Template.Lists_show_page.helpers(&#123;</span><br><span class="line">  listArgs(listId) &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = Template.instance();</span><br><span class="line">    <span class="keyword">const</span> list = Lists.findOne(listId);</span><br><span class="line">    <span class="keyword">const</span> requested = instance.state.get(<span class="string">'requested'</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      list,</span><br><span class="line">      <span class="comment">// we pass the *visible* todos through here</span></span><br><span class="line">      todos: instance.visibleTodos.find(&#123;&#125;, &#123;<span class="attr">limit</span>: requested&#125;),</span><br><span class="line">      requested,</span><br><span class="line">      <span class="attr">countReady</span>: instance.countSub.ready(),</span><br><span class="line">      <span class="attr">count</span>: Counts.get(<span class="string">`list/todoCount<span class="subst">$&#123;listId&#125;</span>`</span>),</span><br><span class="line">      <span class="attr">onNextPage</span>: instance.onNextPage,</span><br><span class="line">      <span class="comment">// These two properties allow the user to know that there</span></span><br><span class="line">      <span class="comment">// are changes to be viewed and allow them to view them</span></span><br><span class="line">      hasChanges: instance.state.get(<span class="string">'hasChanges'</span>),</span><br><span class="line">      <span class="attr">onShowChanges</span>:instance.onShowChanges</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>The reusable sub-component can then use the <code>hasChanges</code> argument to determine if it should show some kind of callout to the user to indicate changes are available, and then use the <code>onShowChanges</code> callback to trigger them to be shown.</p>
+<h3 id="optimistic-ui">Optimistic UI</h3>
+
+<p>One nice UX pattern which Meteor makes much easier than other frameworks is Optimistic UI. Optimistic UI is the process of showing user-generated changes in the UI without waiting for the server to acknowledge that the change has succeeded, resulting in a user experience that seems faster than is physically possible, since you don’t need to wait for any server roundtrips. Since most user actions in a well-designed app will be successful, it makes sense for almost all parts of an app to be optimistic in this way.</p>
+<p>However, it’s not <em>always</em> necessarily a good idea to be optimistic. Sometimes we may actually want to wait for the server’s response. For instance, when a user is logging in, you <em>have</em> to wait for the server to check the password is correct before you can start allowing them into the site.</p>
+<p>So when should you wait for the server and when not? It basically comes down to how optimistic you are; how likely it is that something will go wrong. In the case of a password, you really can’t tell on the client, so you need to be conservative. In other cases, you can be pretty confident that the Method call will succeed, and so you can move on.</p>
+<p>For instance, in the Todos example app, when creating a new list, the list creation will basically always succeed, so we write:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; insert &#125; <span class="keyword">from</span> <span class="string">'../../api/lists/methods.js'</span>;</span><br><span class="line"></span><br><span class="line">Template.App_body.events(&#123;</span><br><span class="line">  <span class="string">'click .js-new-list'</span>() &#123;</span><br><span class="line">    <span class="keyword">const</span> listId = insert.call(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="comment">// At this point, we have already redirected to the new list page, but</span></span><br><span class="line">        <span class="comment">// for some reason the list didn't get created. This should almost never</span></span><br><span class="line">        <span class="comment">// happen, but it's good to handle it anyway.</span></span><br><span class="line">        FlowRouter.go(<span class="string">'App.home'</span>);</span><br><span class="line">        alert(<span class="string">'Could not create list.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    FlowRouter.go(<span class="string">'Lists.show'</span>, &#123; <span class="attr">_id</span>: listId &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>We place the <code>FlowRouter.go(&#39;Lists.show&#39;)</code> outside of the callback of the Method call, so that it runs right away. First we <em>simulate</em> the method (which creates a list locally in Minimongo), then route to it. Eventually the server returns, usually creating the exact same list (which the user will not even notice). In the unlikely event that the server call fails, we show an error and redirect back to the homepage.</p>
+<p>Note that the <code>listId</code> returned by the list method (which is the one generated by the client stub) is guaranteed to be the same as the one generated on the server, due to <a href="methods.html#consistent-id-generation">the way that Meteor generates IDs</a> and ensures they are the same between client and server.</p>
+<h3 id="writes-in-progress">Indicating when a write is in progress</h3>
+
+<p>Sometimes the user may be interested in knowing when the update has hit the server. For instance, in a chat application, it’s a typical pattern to optimistically display the message in the chat log, but indicate that it is “pending” until the server has acknowledged the write. We can do this easily in Meteor by simply modifying the Method to act differently on the client:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Messages.methods.insert = <span class="keyword">new</span> ValidatedMethod(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'Messages.methods.insert'</span>,</span><br><span class="line">  <span class="attr">validate</span>: <span class="keyword">new</span> SimpleSchema(&#123;</span><br><span class="line">    <span class="attr">text</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;</span><br><span class="line">  &#125;).validator(),</span><br><span class="line">  run(message) &#123;</span><br><span class="line">    <span class="comment">// In the simulation (on the client), we add an extra pending field.</span></span><br><span class="line">    <span class="comment">// It will be removed when the server comes back with the "true" data.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isSimulation) &#123;</span><br><span class="line">      message.pending = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Messages.insert(message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Of course in this scenario, you also need to be prepared for the server to fail, and again, indicate it to the user somehow.</p>
+<h3 id="unexpected-failures">Unexpected failures</h3>
+
+<p>We’ve seen examples above of failures which you don’t really anticipate will happen. It’s difficult and inefficient to defend against every possible error, however unlikely. However, there are some catch-all patterns that you can use for unexpected failures.</p>
+<p>Thanks to Meteor’s automatic handling of optimistic UI, if a method unexpectedly fails the optimistic changes will roll back and the Minimongo database will end up in a consistent state. If you are rendering directly from Minimongo, the user will see something that is consistent, even if it’s not what they anticipated of course. In some cases when you have state you are keeping outside of Minimongo, you may need to make changes to it manually to reflect this. You can see this in the example above where we had to update the router manually after an operation failed.</p>
+<p>However, it’s terrible UX to simply jump the user to an unexpected state without explaining what’s happened. We used a <code>alert()</code> above, which is a pretty poor option, but gets the job done. One better approach is to indicate changes via a “flash notification”, which is a UI element that’s displayed “out-of-band”, typically in the top right of the screen, given the user <em>some</em> indication of what’s happened. Here’s an example of a flash notification in Galaxy, at the top right of the page:</p>
+<p><img src="images/galaxy-flash-notification.png"></p>
+<h2 id="animation">Animation</h2>
+
+<p>Animation is the process of indicating changes in the UI smoothly <em>over time</em> rather than <em>instantly</em>. Although animation is often seen as “window dressing” or purely aesthetic, in fact it serves a very important purpose, highlighted by the example of the changing list above. In a connected-client world where changes in the UI aren’t always initiated by user action (i.e. sometimes they happen as a result of the server pushing changes made by other users), instant changes can result in a user experience where it’s difficult to understand what is happening.</p>
+<h3 id="animating-visiblity">Animating changes in visiblity</h3>
+
+<p>Probably the most fundamental type of UI change that requires animation is when items appear or disappear. In Blaze, we can use the <a href="https://atmospherejs.com/percolate/momentum" target="_blank" rel="external"><code>percolate:momentum</code> package</a> to plug a standard set of animations from the <a href="http://julian.com/research/velocity/" target="_blank" rel="external"><code>velocity animation library</code></a> into such state changes.</p>
+<p>A good example of this is the editing state of the list from the Todos example app:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#momentum plugin="fade"&#125;&#125;</span><br><span class="line">  &#123;&#123;#if instance.state.get 'editing'&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"js-edit-form list-edit-form"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  &#123;&#123;else&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav-group"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  &#123;&#123;/if&#125;&#125;</span><br><span class="line">&#123;&#123;/momentum&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>Momentum works by overriding the way that child HTML elements appear and disappear. In this case, when the list component goes into the <code>editing</code> state, the <code>.nav-group</code> disappears, and the <code>form</code> appears. Momentum takes care of the job of making sure that both items fade, making the change a lot clearer.</p>
+<h3 id="animating-attributes">Animating changes to attributes</h3>
+
+<p>Another common type of animation is when an attribute of an element changes. For instance, a button may change color when you click on it. These type of animations are most easily achieved with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank" rel="external">CSS transitions</a>. For example, we use a CSS transition for the hover state of links in the Todos example app:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">200ms</span> ease-in;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color-secondary</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">color</span>: darken(<span class="variable">@color-primary</span>, <span class="number">10%</span>); &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:active</span> &#123; <span class="attribute">color</span>: <span class="variable">@color-well</span>; &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:focus</span> &#123; <span class="attribute">outline</span>:none; &#125; <span class="comment">//removes FF dotted outline</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="animating-page-changes">Animating page changes</h3>
+
+<p>Finally, it’s common to animate when the user switches between routes of the application. Especially on mobile, this adds a sense of navigation to the app via positioning pages relative to each other. This can be done in a similar way to animating things appearing and disappearing (after all one page is appearing and other is disappearing), but there are some tricks that are worth being aware of.</p>
+<p>Let’s consider the case of the Todos example app. Here we do a similar thing to achieve animation between pages, by using Momentum in the main layout template:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#momentum plugin="fade"&#125;&#125;</span><br><span class="line">  &#123;&#123;#if Template.subscriptionsReady&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; Template.dynamic template=main&#125;&#125;</span><br><span class="line">  &#123;&#123;else&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; App_loading&#125;&#125;</span><br><span class="line">  &#123;&#123;/if&#125;&#125;</span><br><span class="line">&#123;&#123;/momentum&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>This looks like it should just work, but there’s one problem: Sometimes the rendering system will prefer to simply change an existing component rather than switching it out and triggering the animation system. For example in the Todos example app, when you navigate between lists, by default Blaze will try to simply re-render the <code>Lists_show</code> component with a new <code>listId</code> (a changed argument) rather than pull the old list out and put in a new one. This is an optimization that is nice in principle, but that we want to avoid here for animation purposes. More specifically, we want to make sure the animation <em>only</em> happens when the <code>listId</code> changes and not on other reactive changes.</p>
+<p>To do so in this case, we can use a little trick (that is specific to Blaze, although similar techniques apply to other view layers) of using the fact that the <code>{{#each}}</code> helper diffs arrays of strings, and completely re-renders elements when they change.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"Lists_show_page"</span>&gt;</span></span><br><span class="line">  &#123;&#123;#each listId in listIdArray&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; Lists_show (listArgs listId)&#125;&#125;</span><br><span class="line">  &#123;&#123;else&#125;&#125;</span><br><span class="line">    &#123;&#123;&gt; App_notFound&#125;&#125;</span><br><span class="line">  &#123;&#123;/each&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Template.Lists_show_page.helpers(&#123;</span><br><span class="line">  <span class="comment">// We use #each on an array of one item so that the "list" template is</span></span><br><span class="line">  <span class="comment">// removed and a new copy is added when changing lists, which is</span></span><br><span class="line">  <span class="comment">// important for animation purposes.</span></span><br><span class="line">  listIdArray() &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = Template.instance();</span><br><span class="line">    <span class="keyword">const</span> listId = instance.getListId();</span><br><span class="line">    <span class="keyword">return</span> Lists.findOne(listId) ? [listId] : [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</image>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="routing.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          URLs and Routing
+        </a>
+      
+      
+        <a class="link primary next"
+          href="blaze.html">
+          <span class="subtitle-pagination">Next</span>
+          Blaze
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/meteor/guide/tree/master/content/ui-ux.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+    <div class="discourse-comments-wrapper content-wrapper">
+      <div id='discourse-comments'></div>
+    </div>
+
+    <script type="text/javascript">
+      DiscourseEmbed = { discourseUrl: 'https://forums.meteor.com/',
+                         topicId: 19665 };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  
+</div>
+
+    <script src="/script/smooth-scroll.min.js"></script>
+    <script src="/script/main.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+      // nectar ninja
+      (function(){
+        var handle = '@meteorjs';
+        var a = document.createElement('script');
+        var m = document.getElementsByTagName('script')[0];
+        a.async = 1;
+        a.src = 'https://nectar.ninja/api/v1/' + handle.slice(1);
+        m.parentNode.insertBefore(a, m);
+      })();
+
+     
+      
+        // Segment Tracking
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load("zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r");
+        analytics.page()
+        }}();
+      
+
+      // search box
+      
+
+        ['desktop'].forEach(function(type) {
+          var search = docsearch({
+            apiKey: 'bdf6b09d12024f6bae3631a0dfdd4a7f',
+            indexName: 'meteor_api_guide',
+            inputSelector: '#' + type + '-search-input',
+            autocompleteOptions: {
+              dropdownMenuContainer: '.wrapper-' + type + '-search-results',
+              debug: true
+            },
+            algoliaOptions: {
+              hitsPerPage: 20
+            }
+          }).autocomplete;
+
+          var sidebar = document.querySelector('.sidebar-content');
+          search.on('autocomplete:opened', function() {
+            sidebar.classList.add('searching');
+          });
+          search.on('autocomplete:closed', function() {
+            sidebar.classList.remove('searching');
+          });
+          search.on('autocomplete:updated', function() {
+            if (search.val() === '') {
+              search.autocomplete.close();
+            }
+          });
+        });
+      
+
+      
+        var REDIRECTS = {
+  "/using-packages.html": "atmosphere-vs-npm.html",
+  "/using-packages.html#npm": "using-npm-packages.html",
+  "/using-packages.html#client-npm": "using-npm-packages.html#client-npm",
+  "/using-packages.html#installing-npm": "using-npm-packages.html#installing-npm",
+  "/using-packages.html#using-npm": "using-npm-packages.html#using-npm",
+  "/using-packages.html#npm-styles": "using-npm-packages.html#npm-styles",
+  "/using-packages.html#npm-shrinkwrap": "using-npm-packages.html#npm-shrinkwrap",
+  "/using-packages.html#atmosphere": "using-atmosphere-packages.html",
+  "/using-packages.html#atmosphere-searching": "using-atmosphere-packages.html#atmosphere-searching",
+  "/using-packages.html#atmosphere-naming": "using-atmosphere-packages.html#atmosphere-naming",
+  "/using-packages.html#installing-atmosphere": "using-atmosphere-packages.html#installing-atmosphere",
+  "/using-packages.html#using-atmosphere": "using-atmosphere-packages.html#using-atmosphere",
+  "/using-packages.html#importing-atmosphere-styles": "using-atmosphere-packages.html#importing-atmosphere-styles",
+  "/using-packages.html#peer-npm-dependencies": "using-atmosphere-packages.html#peer-npm-dependencies",
+  "/using-packages.html#package-namespacing": "using-atmosphere-packages.html#package-namespacing",
+  "/using-packages.html#async-callbacks": "using-npm-packages.html#async-callbacks",
+  "/using-packages.html#bind-environment": "using-npm-packages.html#bind-environment",
+  "/using-packages.html#wrap-async": "using-npm-packages.html#wrap-async",
+  "/using-packages.html#promises": "using-npm-packages.html#promises",
+  "/using-packages.html#overriding-packages": "writing-npm-packages.html#overriding-npm-packages",
+  "/using-packages.html#npm-overriding": "writing-npm-packages.html#overriding-npm-packages",
+  "/using-packages.html#atmosphere-overriding": "writing-atmosphere-packages.html#overriding-atmosphere-packages",
+  "/using-packages.html#npm-shrinkpack": "using-npm-packages.html#npm-shrinkpack",
+  "/writing-packages.html": "writing-atmosphere-packages.html",
+  "/writing-packages.html#npm-vs-atmosphere": "atmosphere-vs-npm.html",
+  "/writing-packages.html#creating-npm": "writing-npm-packages.html",
+  "/writing-packages.html#including-in-app": "writing-npm-packages.html#including-in-app",
+  "/writing-packages.html#publishing-npm": "writing--packages.html#publishing-npm",
+  "/writing-packages.html#creating": "writing-atmosphere-packages.html",
+  "/writing-packages.html#adding-files": "writing-atmosphere-packages.html#adding-files",
+  "/writing-packages.html#adding-javascript": "writing-atmosphere-packages.html#adding-javascript",
+  "/writing-packages.html#adding-css": "writing-atmosphere-packages.html#adding-css",
+  "/writing-packages.html#adding-style": "writing-atmosphere-packages.html#adding-style",
+  "/writing-packages.html#adding-assests": "writing-atmosphere-packages.html#adding-assets",
+  "/writing-packages.html#exporting": "writing-atmosphere-packages.html#exporting",
+  "/writing-packages.html#dependencies": "writing-atmosphere-packages.html#dependencies",
+  "/writing-packages.html#atmosphere-dependencies": "writing-atmosphere--packages.html#atmosphere-dependencies",
+  "/writing-packages.html#meteor-version-dependencies": "writing-atmosphere-packages.html#meteor-version-dependencies",
+  "/writing-packages.html#version-constraints": "writing-atmosphere-packages.html#version-constraints",
+  "/writing-packages.html#npm-dependencies": "writing-atmosphere-packages.html#npm-dependencies",
+  "/writing-packages.html#peer-npm-dependencies": "writing-atmosphere-packages.html#peer-npm-dependencies",
+  "/writing-packages.html#cordova-plugins": "writing-atmosphere-packages.html#cordova-plugins",
+  "/writing-packages.html#testing": "writing-atmosphere-packages.html#testing",
+  "/writing-packages.html#testing-with-peer-dependencies": "writing-atmosphere-packages.html#testing-with-peer-dependencies",
+  "/writing-packages.html#local-vs-published": "writing-atmosphere-packages.html#local-vs-published",
+  "/writing-packages.html#build-plugins": "build-tool.html#build-plugins",
+  "/writing-packages.html#types-of-build-plugins": "build-tool.html#types-of-build-plugins",
+  "/writing-packages.html#writing-build-plugins": "build-tool.html#writing-build-plugins",
+  "/writing-packages.html#caching-build-plugins": "build-tool.html#caching-build-plugins",
+  "/testing.html#simple-unit-test": "testing.html#simple-blaze-unit-test"
+};
+
+        function redirect() {
+          // Support redirects of the form /path#hash
+          var locationKey = location.pathname + location.hash;
+          if (REDIRECTS[locationKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[locationKey]);
+          }
+
+          // Support redirects of the form #hash (works for any path)
+          var hashKey = location.hash;
+          if (REDIRECTS[hashKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[hashKey]);
+          }
+        }
+
+        // Redirect now
+        redirect();
+
+        // Redirect on hash change
+        window.onhashchange = redirect;
+      
+    </script>
+  </body>
+</html>

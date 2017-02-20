@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title>Code Style | Meteor Guide</title>
+    <meta name="description" content="Suggested style guidelines for your code.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://guide.meteor.com">
+    <meta property="og:title" content="Code Style | Meteor Guide">
+    <meta property="og:description" content="Suggested style guidelines for your code.">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="@meteor">
+    <meta name="twitter:title" content="Code Style | Meteor Guide">
+    <meta name="twitter:description" content="Suggested style guidelines for your code.">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/style/style.css">
+  </head>
+  <body class="">
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      <a class="logo-wrapper" href="http://www.meteor.com/developers" title="Meteor Developers Developers"  >
+        <img src="../images/logo-coralspace-left.svg" alt="Meteor Developers" class="logo"/>
+        <span>Developers</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop active ">
+        <a class="link" href="http://guide.meteor.com"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="http://docs.meteor.com"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="nav-item show-desktop  ">
+        <a class="link" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="http://www.meteor.com/developers" title="Meteor Developers"  >
+        <span>Meteor Developers Developers</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://www.meteor.com/tutorials" target=_new >
+          <span>Tutorials</span>
+        </a>
+      </div>
+    
+      <div class="panel-item active"">
+        <a class="" href="http://guide.meteor.com"  >
+          <span>Guide</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="http://docs.meteor.com"  >
+          <span>API Docs</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://forums.meteor.com/" target=_new >
+          <span>Forums</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">Meteor Guide</span>
+      
+        <span class="select version-sidebar nochrome">
+          <select class="version-select">
+            
+              <option value="v1.4">1.4</option>
+            
+              <option value="v1.3">1.3</option>
+            
+              <option value="v1.2">1.2</option>
+            
+          </select>
+        </span>
+      
+    </div>
+
+    
+    <div class="wrapper-search">
+      <div class="input-symbol small round">
+        <input type="text" placeholder="Search The Official Guide" id="desktop-search-input" />
+        <span class="icon-search"></span>
+      </div>
+      <div class="wrapper-desktop-search-results"></div>
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
+                  <span>Introduction</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>Code Style</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="structure.html" class="sidebar-link ">
+                  <span>Application Structure</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="1.4-migration.html" class="sidebar-link ">
+                  <span>Migrating to Meteor 1.4</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="1.3-migration.html" class="sidebar-link ">
+                  <span>Migrating to Meteor 1.3</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Data</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="collections.html" class="sidebar-link ">
+                  <span>Collections and Schemas</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="data-loading.html" class="sidebar-link ">
+                  <span>Publications and Data Loading</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="methods.html" class="sidebar-link ">
+                  <span>Methods</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="accounts.html" class="sidebar-link ">
+                  <span>Users and Accounts</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="testing.html" class="sidebar-link ">
+                  <span>Testing</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">View</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="routing.html" class="sidebar-link ">
+                  <span>URLs and Routing</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="ui-ux.html" class="sidebar-link ">
+                  <span>User Interfaces</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="blaze.html" class="sidebar-link ">
+                  <span>Blaze</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="react.html" class="sidebar-link ">
+                  <span>React</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="angular.html" class="sidebar-link ">
+                  <span>Angular</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Build</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="atmosphere-vs-npm.html" class="sidebar-link ">
+                  <span>Atmosphere vs. npm</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="using-atmosphere-packages.html" class="sidebar-link ">
+                  <span>Using Atmosphere Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="writing-atmosphere-packages.html" class="sidebar-link ">
+                  <span>Writing Atmosphere Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="using-npm-packages.html" class="sidebar-link ">
+                  <span>Using npm Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="writing-npm-packages.html" class="sidebar-link ">
+                  <span>Writing npm Packages</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="mobile.html" class="sidebar-link ">
+                  <span>Mobile</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="build-tool.html" class="sidebar-link ">
+                  <span>Build System</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Production</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="security.html" class="sidebar-link ">
+                  <span>Security</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="deployment.html" class="sidebar-link ">
+                  <span>Deployment and Monitoring</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Meta</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="CONTRIBUTING.html" class="sidebar-link ">
+                  <span>Contribution Guidelines</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="CHANGELOG.html" class="sidebar-link ">
+                  <span>Changelog</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Code Style</h1>
+      
+        <div class="subtitle-page">Suggested style guidelines for your code.</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/meteor/guide/tree/master/content/code-style.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          
+            <a class="btn tertiary small round lowercase" href="https://forums.meteor.com/t/20189"><span class="icon-comment"></span> <span>Discuss</span></a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>After reading this article, you’ll know:</p>
+<ol>
+<li>Why it’s a good idea to have consistent code style</li>
+<li>Which style guide we recommend for JavaScript code</li>
+<li>How to set up ESLint to check code style automatically</li>
+<li>Style suggestions for Meteor-specific patterns, such as Methods, publications, and more</li>
+</ol>
+<h2 id="benefits-style">Benefits of consistent style</h2>
+
+<p>Countless hours have been spent by developers throughout the years arguing over single vs. double quotes, where to put brackets, how many spaces to type, and all kinds of other cosmetic code style questions. These are all questions that have at best a tangential relationship to code quality, but are very easy to have opinions about because they are so visual.</p>
+<p>While it’s not necessarily important whether your code base uses single or double quotes for string literals, there are huge benefits to making that decision once and having it be consistent across your organization. These benefits also apply to the Meteor and JavaScript development communities as a whole.</p>
+<h3 id="easy-to-read">Easy to read code</h3>
+
+<p>The same way that you don’t read English sentences one word at a time, you don’t read code one token at a time. Mostly you just look at the shape of a certain expression, or the way it highlights in your editor, and assume what it does. If the style of every bit of code is consistent, that ensures that bits of code that look the same actually <em>are</em> the same - there isn’t any hidden punctuation or gotchas that you don’t expect, so you can focus on understanding the logic instead of the symbols. One example of this is indentation - while in JavaScript, indentation is not meaningful, it’s helpful to have all of your code consistently indented so that you don’t need to read all of the brackets in detail to see what is going on.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This code is misleading because it looks like both statements</span></span><br><span class="line"><span class="comment">// are inside the conditional.</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">  firstStatement();</span><br><span class="line">  secondStatement();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Much clearer!</span></span><br><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">  firstStatement();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">secondStatement();</span><br></pre></td></tr></table></figure>
+<h3 id="automatic-error-checking">Automatic error checking</h3>
+
+<p>Having a consistent style means that it’s easier to adopt standard tools for error checking. For example, if you adopt a convention that you must always use <code>let</code> or <code>const</code> instead of <code>var</code>, you can now use a tool to ensure all of your variables are scoped the way you expect. That means you can avoid bugs where variables act in unexpected ways. Also, by enforcing that all variables are declared before use, you can easily catch typos before even running any code!</p>
+<h3 id="deeper-understanding">Deeper understanding</h3>
+
+<p>It’s hard to learn everything about a programming language at once. For example, programmers new to JavaScript often struggle with the <code>var</code> keyword and function scope. Using a community-recommended coding style with automatic linting can warn you about these pitfalls proactively. This means you can jump right into coding without learning about all of the edge cases of JavaScript ahead of time.</p>
+<p>As you write more code and come up against the recommended style rules, you can take that as an opportunity to learn more about your programming language and how different people prefer to use it.</p>
+<h2 id="javascript">JavaScript style guide</h2>
+
+<p>Here at Meteor, we strongly believe that JavaScript is the best language to build web applications, for a variety of reasons. JavaScript is constantly improving, and the standards around ES2015 have really brought together the JavaScript community. Here are our recommendations about how to use ES2015 JavaScript in your app today.</p>
+<p><img src="images/ben-es2015-demo.gif" alt=""></p>
+<blockquote>
+<p>An example of refactoring from JavaScript to ES2015</p>
+</blockquote>
+<h3 id="ecmascript">Use the <code>ecmascript</code> package</h3>
+
+<p>ECMAScript, the language standard on which every browser’s JavaScript implementation is based, has moved to yearly standards releases. The newest complete standard is ES2015, which includes some long-awaited and very significant improvements to the JavaScript language. Meteor’s <code>ecmascript</code> package compiles this standard down to regular JavaScript that all browsers can understand using the <a href="https://babeljs.io/" target="_blank" rel="external">popular Babel compiler</a>. It’s fully backwards compatible to “regular” JavaScript, so you don’t have to use any new features if you don’t want to. We’ve put a lot of effort into making advanced browser features like source maps work great with this package, so that you can debug your code using your favorite developer tools without having to see any of the compiled output.</p>
+<p>The <code>ecmascript</code> package is included in all new apps and packages by default, and compiles all files with the <code>.js</code> file extension automatically. See the <a href="https://docs.meteor.com/packages/ecmascript.html#Supported-ES2015-Features" target="_blank" rel="external">list of all ES2015 features supported by the ecmascript package</a>.</p>
+<p>To get the full experience, you should also use the <code>es5-shim</code> package which is included in all new apps by default. This means you can rely on runtime features like <code>Array#forEach</code> without worrying about which browsers support them.</p>
+<p>All of the code samples in this guide and future Meteor tutorials will use all of the new ES2015 features. You can also read more about ES2015 and how to get started with it on the Meteor Blog:</p>
+<ul>
+<li><a href="http://info.meteor.com/blog/es2015-get-started" target="_blank" rel="external">Getting started with ES2015 and Meteor</a></li>
+<li><a href="http://info.meteor.com/blog/set-up-sublime-text-for-meteor-es6-es2015-and-jsx-syntax-and-linting" target="_blank" rel="external">Set up Sublime Text for ES2015</a></li>
+<li><a href="http://info.meteor.com/blog/how-much-does-es2015-cost" target="_blank" rel="external">How much does ES2015 cost?</a></li>
+</ul>
+<h3 id="style-guide">Follow a JavaScript style guide</h3>
+
+<p>We recommend choosing and sticking to a JavaScript style guide and enforcing it with tools. A popular option that we recommend is the <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb style guide</a> with the ES6 extensions (and optionally React extensions).</p>
+<h2 id="eslint">Check your code with ESLint</h2>
+
+<p>“Code linting” is the process of automatically checking your code for common errors or style problems. For example, ESLint can determine if you have made a typo in a variable name, or some part of your code is unreachable because of a poorly written <code>if</code> condition.</p>
+<p>We recommend using the <a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb" target="_blank" rel="external">Airbnb eslint configuration</a> which verifies the Airbnb styleguide.</p>
+<p>Below, you can find directions for setting up automatic linting at many different stages of development. In general, you want to run the linter as often as possible, because it’s the fastest and easiest way to identify typos and small errors.</p>
+<h3 id="eslint-installing">Installing and running ESLint</h3>
+
+<p>To setup ESLint in your application, you can install the following <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="external">npm</a> packages:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meteor npm install --<span class="keyword">save</span>-dev babel-eslint eslint-config-airbnb eslint-<span class="keyword">plugin</span>-import eslint-<span class="keyword">plugin</span>-meteor eslint-<span class="keyword">plugin</span>-react eslint-<span class="keyword">plugin</span>-jsx-a11y eslint-import-resolver-meteor eslint</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Meteor comes with npm bundled so that you can type meteor npm without worrying about installing it yourself. If you like, you can also use a globally installed npm command.</p>
+</blockquote>
+<p>You can also add a <code>eslintConfig</code> section to your <code>package.json</code> to specify that you’d like to use the Airbnb config, and to enable <a href="https://github.com/dferber90/eslint-plugin-meteor" target="_blank" rel="external">ESLint-plugin-Meteor</a>. You can also setup any extra rules you want to change, as well as adding a lint npm command:</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"lint"</span>: <span class="string">"eslint ."</span>,</span><br><span class="line">    <span class="string">"pretest"</span>: <span class="string">"npm run lint --silent"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"eslintConfig"</span>: &#123;</span><br><span class="line">    <span class="string">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">    <span class="string">"parserOptions"</span>: &#123;</span><br><span class="line">      <span class="string">"allowImportExportEverywhere"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"plugins"</span>: [</span><br><span class="line">      <span class="string">"meteor"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"extends"</span>: [</span><br><span class="line">      <span class="string">"airbnb"</span>,</span><br><span class="line">      <span class="string">"plugin:meteor/recommended"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"import/resolver"</span>: <span class="string">"meteor"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"rules"</span>: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To run the linter, you can now simply type:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meteor npm run lint</span><br></pre></td></tr></table></figure>
+<p>For more details, read the <a href="http://eslint.org/docs/user-guide/getting-started" target="_blank" rel="external">Getting Started</a> directions from the ESLint website.</p>
+<h3 id="eslint-editor">Integrating with your editor</h3>
+
+<p>Linting is the fastest way to find potential bugs in your code. Running a linter is usually faster than running your app or your unit tests, so it’s a good idea to run it all the time. Setting up linting in your editor can seem annoying at first since it will complain often when you save poorly-formatted code, but over time you’ll develop the muscle memory to just write well-formatted code in the first place. Here are some directions for setting up ESLint in different editors:</p>
+<h4 id="eslint-sublime">Sublime Text</h4>
+
+<p>You can install the Sublime Text packages that integrate them into the text editor. It’s generally recommended to use Package Control to add these packages. If you already have that setup, you can just add the these packages by name; if not, click the instructions links:</p>
+<ul>
+<li>Babel (for syntax highlighting – <a href="https://github.com/babel/babel-sublime#installation" target="_blank" rel="external">full instructions</a>)</li>
+<li>SublimeLinter (<a href="http://sublimelinter.readthedocs.org/en/latest/installation.html" target="_blank" rel="external">full instructions</a>)</li>
+<li>SublimeLinter-contrib-eslint (<a href="https://github.com/roadhump/SublimeLinter-eslint#plugin-installation" target="_blank" rel="external">full instructions</a>)</li>
+</ul>
+<p>To get proper syntax highlighting, go to a .js file, then select the following through the <em>View</em> dropdown menu: <em>Syntax</em> -&gt; <em>Open all with current extension as…</em> -&gt; <em>Babel</em> -&gt; <em>JavaScript (Babel)</em>. If you are using React .jsx files, do the same from a .jsx file. If it’s working, you will see “JavaScript (Babel)” in the lower right hand corner of the window when you are on one of these files. Refer to the <a href="https://github.com/babel/babel-sublime" target="_blank" rel="external">package readme</a> for information on compatible color schemes.</p>
+<p>A side note for Emmet users: You can use <em>\<ctrl-e\></ctrl-e\></em> to expand HTML tags in .jsx files, and it will correctly expand classes to React’s “className” property. You can bind to the tab key for this, but <a href="https://github.com/sergeche/emmet-sublime/issues/548" target="_blank" rel="external">you may not want to</a>.</p>
+<h4 id="eslint-atom">Atom</h4>
+
+<p>Using ESLint with Atom is simple. Just install these three packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apm install language-babel</span><br><span class="line">apm install linter</span><br><span class="line">apm install linter-eslint</span><br></pre></td></tr></table></figure>
+<p>Then <strong>restart</strong> (or <strong>reload</strong> by pressing Ctrl+Alt+R / Cmd+Opt+R) Atom to activate linting.</p>
+<h4 id="eslint-webstorm">WebStorm</h4>
+
+<p>WebStorm provides <a href="https://www.jetbrains.com/webstorm/help/eslint.html" target="_blank" rel="external">these instructions for using ESLint</a>. After you install the ESLint Node packages and set up your <code>package.json</code>, just enable ESLint and click “Apply”. You can configure how WebStorm should find your <code>.eslintrc</code> file, but on my machine it worked without any changes. It also automatically suggested switching to “JSX Harmony” syntax highlighting.</p>
+<p><img src="images/webstorm-configuration.png" alt="Enable ESLint here."></p>
+<p>Linting can be activated on WebStorm on a project-by-project basis, or you can set ESLint as a default under Editor &gt; Inspections, choosing the Default profile, checking “ESLint”, and applying.</p>
+<h4 id="eslint-vscode">Visual Studio Code</h4>
+
+<p>Using ESLint in VS Code requires installation of the 3rd party <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="external">ESLint</a> extension.  In order to install the extension, follow these steps:</p>
+<ol>
+<li>Launch VS Code and open the quick open menu by typing <code>Ctrl+P</code></li>
+<li>Paste <code>ext install vscode-eslint</code> in the command window and press <code>Enter</code></li>
+<li>Restart VS Code</li>
+</ol>
+<h2 id="meteor-features">Meteor code style</h2>
+
+<p>The section above talked about JavaScript code in general - you can easily apply it in any JavaScript application, not just with Meteor apps. However, there are some style questions that are Meteor-specific, in particular how to name and structure all of the different components of your app.</p>
+<h3 id="collections">Collections</h3>
+
+<p>Collections should be named as a plural noun, in <a href="https://en.wikipedia.org/wiki/PascalCase" target="_blank" rel="external">PascalCase</a>. The name of the collection in the database (the first argument to the collection constructor) should be the same as the name of the JavaScript symbol.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Defining a collection</span></span><br><span class="line">Lists = <span class="keyword">new</span> Mongo.Collection(<span class="string">'lists'</span>);</span><br></pre></td></tr></table></figure>
+<p>Fields in the database should be camelCased just like your JavaScript variable names.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Inserting a document with camelCased field names</span></span><br><span class="line">Widgets.insert(&#123;</span><br><span class="line">  <span class="attr">myFieldName</span>: <span class="string">'Hello, world!'</span>,</span><br><span class="line">  <span class="attr">otherFieldName</span>: <span class="string">'Goodbye.'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="methods-and-publications">Methods and publications</h3>
+
+<p>Method and publication names should be camelCased, and namespaced to the module they are in:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in imports/api/todos/methods.js</span></span><br><span class="line">updateText = <span class="keyword">new</span> ValidatedMethod(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'todos.updateText'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Note that this code sample uses the <a href="methods.html#validated-method">ValidatedMethod package recommended in the Methods article</a>. If you aren’t using that package, you can use the name as the property passed to <code>Meteor.methods</code>.</p>
+<p>Here’s how this naming convention looks when applied to a publication:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Naming a publication</span></span><br><span class="line">Meteor.publish(<span class="string">'lists.public'</span>, <span class="function"><span class="keyword">function</span> <span class="title">listsPublic</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="files-and-exports">Files, exports, and packages</h3>
+
+<p>You should use the ES2015 <code>import</code> and <code>export</code> features to manage your code. This will let you better understand the dependencies between different parts of your code, and it will be easy to know where to look if you need to read the source code of a dependency.</p>
+<p>Each file in your app should represent one logical module. Avoid having catch-all utility modules that export a variety of unrelated functions and symbols. Often, this can mean that it’s good to have one class, UI component, or collection per file, but there are cases where it is OK to make an exception, for example if you have a UI component with a small sub-component that isn’t used outside of that file.</p>
+<p>When a file represents a single class or UI component, the file should be named the same as the thing it defines, with the same capitalization. So if you have a file that exports a class:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ClickCounter</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>This class should be defined inside a file called <code>ClickCounter.js</code>. When you import it, it’ll look like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ClickCounter <span class="keyword">from</span> <span class="string">'./ClickCounter.js'</span>;</span><br></pre></td></tr></table></figure>
+<p>Note that imports use relative paths, and include the file extension at the end of the file name.</p>
+<p>For <a href="using-packages.html">Atmosphere packages</a>, as the older pre-1.3 <code>api.export</code> syntax allowed more than one export per package, you’ll tend to see non-default exports used for symbols. For instance:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// You'll need to destructure here, as Meteor could export more symbols</span></span><br><span class="line"><span class="keyword">import</span> &#123; Meteor &#125; <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This will not work</span></span><br><span class="line"><span class="keyword">import</span> Meteor <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="templates-and-components">Templates and components</h3>
+
+<p>Since Spacebars templates are always global, can’t be imported and exported as modules, and need to have names that are completely unique across the whole app, we recommend naming your Blaze templates with the full path to the namespace, separated by underscores. Underscores are a great choice in this case because then you can easily type the name of the template as one symbol in JavaScript.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"Lists_show"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If this template is a “smart” component that loads server data and accesses the router, append <code>_page</code> to the name:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">"Lists_show_page"</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Often when you are dealing with templates or UI components, you’ll have several closely coupled files to manage. They could be two or more of HTML, CSS, and JavaScript files. In this case, we recommend putting these together in the same directory with the same name:</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The Lists_show template from the Todos example app has 3 files:</span></span><br><span class="line"><span class="literal">show</span>.html</span><br><span class="line"><span class="literal">show</span>.js</span><br><span class="line"><span class="literal">show</span>.less</span><br></pre></td></tr></table></figure>
+<p>The whole directory or path should indicate that these templates are related to the <code>Lists</code> module, so it’s not necessary to reproduce that information in the file name. Read more about directory structure <a href="structure.html#javascript-structure">below</a>.</p>
+<p>If you are writing your UI in React, you don’t need to use the underscore-split names because you can import and export your components using the JavaScript module system.</p>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="index.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Introduction
+        </a>
+      
+      
+        <a class="link primary next"
+          href="structure.html">
+          <span class="subtitle-pagination">Next</span>
+          Application Structure
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/meteor/guide/tree/master/content/code-style.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+
+  
+    <div class="discourse-comments-wrapper content-wrapper">
+      <div id='discourse-comments'></div>
+    </div>
+
+    <script type="text/javascript">
+      DiscourseEmbed = { discourseUrl: 'https://forums.meteor.com/',
+                         topicId: 20189 };
+
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+    </script>
+  
+</div>
+
+    <script src="/script/smooth-scroll.min.js"></script>
+    <script src="/script/main.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2.1.8/docsearch.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+      // nectar ninja
+      (function(){
+        var handle = '@meteorjs';
+        var a = document.createElement('script');
+        var m = document.getElementsByTagName('script')[0];
+        a.async = 1;
+        a.src = 'https://nectar.ninja/api/v1/' + handle.slice(1);
+        m.parentNode.insertBefore(a, m);
+      })();
+
+     
+      
+        // Segment Tracking
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load("zQx6cQifkTU79E3L0XAnmrOXP2A5bC6r");
+        analytics.page()
+        }}();
+      
+
+      // search box
+      
+
+        ['desktop'].forEach(function(type) {
+          var search = docsearch({
+            apiKey: 'bdf6b09d12024f6bae3631a0dfdd4a7f',
+            indexName: 'meteor_api_guide',
+            inputSelector: '#' + type + '-search-input',
+            autocompleteOptions: {
+              dropdownMenuContainer: '.wrapper-' + type + '-search-results',
+              debug: true
+            },
+            algoliaOptions: {
+              hitsPerPage: 20
+            }
+          }).autocomplete;
+
+          var sidebar = document.querySelector('.sidebar-content');
+          search.on('autocomplete:opened', function() {
+            sidebar.classList.add('searching');
+          });
+          search.on('autocomplete:closed', function() {
+            sidebar.classList.remove('searching');
+          });
+          search.on('autocomplete:updated', function() {
+            if (search.val() === '') {
+              search.autocomplete.close();
+            }
+          });
+        });
+      
+
+      
+        var REDIRECTS = {
+  "/using-packages.html": "atmosphere-vs-npm.html",
+  "/using-packages.html#npm": "using-npm-packages.html",
+  "/using-packages.html#client-npm": "using-npm-packages.html#client-npm",
+  "/using-packages.html#installing-npm": "using-npm-packages.html#installing-npm",
+  "/using-packages.html#using-npm": "using-npm-packages.html#using-npm",
+  "/using-packages.html#npm-styles": "using-npm-packages.html#npm-styles",
+  "/using-packages.html#npm-shrinkwrap": "using-npm-packages.html#npm-shrinkwrap",
+  "/using-packages.html#atmosphere": "using-atmosphere-packages.html",
+  "/using-packages.html#atmosphere-searching": "using-atmosphere-packages.html#atmosphere-searching",
+  "/using-packages.html#atmosphere-naming": "using-atmosphere-packages.html#atmosphere-naming",
+  "/using-packages.html#installing-atmosphere": "using-atmosphere-packages.html#installing-atmosphere",
+  "/using-packages.html#using-atmosphere": "using-atmosphere-packages.html#using-atmosphere",
+  "/using-packages.html#importing-atmosphere-styles": "using-atmosphere-packages.html#importing-atmosphere-styles",
+  "/using-packages.html#peer-npm-dependencies": "using-atmosphere-packages.html#peer-npm-dependencies",
+  "/using-packages.html#package-namespacing": "using-atmosphere-packages.html#package-namespacing",
+  "/using-packages.html#async-callbacks": "using-npm-packages.html#async-callbacks",
+  "/using-packages.html#bind-environment": "using-npm-packages.html#bind-environment",
+  "/using-packages.html#wrap-async": "using-npm-packages.html#wrap-async",
+  "/using-packages.html#promises": "using-npm-packages.html#promises",
+  "/using-packages.html#overriding-packages": "writing-npm-packages.html#overriding-npm-packages",
+  "/using-packages.html#npm-overriding": "writing-npm-packages.html#overriding-npm-packages",
+  "/using-packages.html#atmosphere-overriding": "writing-atmosphere-packages.html#overriding-atmosphere-packages",
+  "/using-packages.html#npm-shrinkpack": "using-npm-packages.html#npm-shrinkpack",
+  "/writing-packages.html": "writing-atmosphere-packages.html",
+  "/writing-packages.html#npm-vs-atmosphere": "atmosphere-vs-npm.html",
+  "/writing-packages.html#creating-npm": "writing-npm-packages.html",
+  "/writing-packages.html#including-in-app": "writing-npm-packages.html#including-in-app",
+  "/writing-packages.html#publishing-npm": "writing--packages.html#publishing-npm",
+  "/writing-packages.html#creating": "writing-atmosphere-packages.html",
+  "/writing-packages.html#adding-files": "writing-atmosphere-packages.html#adding-files",
+  "/writing-packages.html#adding-javascript": "writing-atmosphere-packages.html#adding-javascript",
+  "/writing-packages.html#adding-css": "writing-atmosphere-packages.html#adding-css",
+  "/writing-packages.html#adding-style": "writing-atmosphere-packages.html#adding-style",
+  "/writing-packages.html#adding-assests": "writing-atmosphere-packages.html#adding-assets",
+  "/writing-packages.html#exporting": "writing-atmosphere-packages.html#exporting",
+  "/writing-packages.html#dependencies": "writing-atmosphere-packages.html#dependencies",
+  "/writing-packages.html#atmosphere-dependencies": "writing-atmosphere--packages.html#atmosphere-dependencies",
+  "/writing-packages.html#meteor-version-dependencies": "writing-atmosphere-packages.html#meteor-version-dependencies",
+  "/writing-packages.html#version-constraints": "writing-atmosphere-packages.html#version-constraints",
+  "/writing-packages.html#npm-dependencies": "writing-atmosphere-packages.html#npm-dependencies",
+  "/writing-packages.html#peer-npm-dependencies": "writing-atmosphere-packages.html#peer-npm-dependencies",
+  "/writing-packages.html#cordova-plugins": "writing-atmosphere-packages.html#cordova-plugins",
+  "/writing-packages.html#testing": "writing-atmosphere-packages.html#testing",
+  "/writing-packages.html#testing-with-peer-dependencies": "writing-atmosphere-packages.html#testing-with-peer-dependencies",
+  "/writing-packages.html#local-vs-published": "writing-atmosphere-packages.html#local-vs-published",
+  "/writing-packages.html#build-plugins": "build-tool.html#build-plugins",
+  "/writing-packages.html#types-of-build-plugins": "build-tool.html#types-of-build-plugins",
+  "/writing-packages.html#writing-build-plugins": "build-tool.html#writing-build-plugins",
+  "/writing-packages.html#caching-build-plugins": "build-tool.html#caching-build-plugins",
+  "/testing.html#simple-unit-test": "testing.html#simple-blaze-unit-test"
+};
+
+        function redirect() {
+          // Support redirects of the form /path#hash
+          var locationKey = location.pathname + location.hash;
+          if (REDIRECTS[locationKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[locationKey]);
+          }
+
+          // Support redirects of the form #hash (works for any path)
+          var hashKey = location.hash;
+          if (REDIRECTS[hashKey]) {
+            location.replace(location.origin + '/' + REDIRECTS[hashKey]);
+          }
+        }
+
+        // Redirect now
+        redirect();
+
+        // Redirect on hash change
+        window.onhashchange = redirect;
+      
+    </script>
+  </body>
+</html>
