@@ -411,12 +411,13 @@
 
 <p>범용 자바 스크립트</p>
 <p>Meteor is a <em>full-stack</em> framework for building JavaScript applications. This means Meteor applications differ from most applications in that they include code that runs on the client, inside a web browser or Cordova mobile app, code that runs on the server, inside a <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a> container, and <em>common</em> code that runs in both environments. The <a href="build-tool.html">Meteor build tool</a> allows you to easily specify what JavaScript code, including any supporting UI templates, CSS rules, and static assets, to run in each environment using a combination of ES2015 <code>import</code> and <code>export</code> and the Meteor build system <a href="#load-order">default file load order</a> rules.</p>
-<p>Meteor는 JavaScript 애플리케이션을 작성하기위한 전체 스택 프레임 워크입니다. 즉, Meteor 응용 프로그램은 클라이언트, 웹 브라우저 또는 Cordova 모바일 응용 프로그램, 서버에서 실행되는 코드, Node.js 컨테이너 및 두 환경에서 실행되는 공통 코드에서 실행되는 코드를 포함한다는 점에서 대부분의 응용 프로그램과 다릅니다. . Meteor 빌드 도구를 사용하면 지원되는 UI 템플릿, CSS 규칙 및 정적 애셋을 포함하여 ES2015 가져 오기 / 내보내기와 Meteor 빌드 시스템 기본 파일로드 순서 규칙을 조합하여 각 환경에서 실행되는 JavaScript 코드를 쉽게 지정할 수 있습니다.</p>
+<p>Meteor는 JavaScript 애플리케이션을 작성하기위한 전체 스택 프레임 워크입니다. 즉, Meteor 응용 프로그램은 클라이언트, 웹 브라우저 또는 Cordova 모바일 응용 프로그램, 서버에서 실행되는 코드, Node.js 컨테이너 및 두 환경에서 실행되는 공통 코드에서 실행되는 코드를 포함한다는 점에서 대부분의 응용 프로그램과 다릅니다. . Meteor 빌드 도구를 사용하면 지원되는 UI 템플릿, CSS 규칙 및 정적 애셋을 포함하여 ES2015 가져 오기 / 내보내기와 Meteor 빌드 시스템 기본 파일로드 순서 규칙을 조합하여 각 환경에서 실행되는 JavaScript 코드를 쉽게 지정할 수 있습니다.<br><code>Meteor는 JavaScript 애플리케이션을 구현하기위한 *full-stack* 프레임 워크입니다. 즉, Meteor 응용 프로그램은 클라이언트, 웹 브라우저 또는 Cordova 모바일 응용 프로그램, 서버에서 실행되는 코드, [Node.js](http://nodejs.org/)에서 실행되는 코드를 포함한다는 점에서 대부분의 응용 프로그램과 다릅니다. 컨테이너 및 두 환경에서 실행되는 _common_ 코드가 있습니다. [Meteor build tool](build-tool.html)을 사용하면 지원되는 UI 템플릿, CSS 규칙 및 정적 애셋을 포함한 모든 JavaScript 코드를 ES2015의</code>import<code>와</code>export<code>와 Meteor 빌드 시스템 [기본 파일로드 순서](#load-order) 규칙을 사용합니다.</code></p>
 <h3 id="es2015-modules">ES2015 modules</h3>
 
 <p>ES2015 모듈</p>
 <p>As of version 1.3, Meteor ships with full support for <a href="https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import" target="_blank" rel="external">ES2015 modules</a>. The ES2015 module standard is the replacement for <a href="http://requirejs.org/docs/commonjs.html" target="_blank" rel="external">CommonJS</a> and <a href="https://github.com/amdjs/amdjs-api" target="_blank" rel="external">AMD</a>, which are commonly used JavaScript module format and loading systems.</p>
 <p>버전 1.3부터 ​​Meteor는 ES2015 모듈을 완벽하게 지원합니다. ES2015 모듈 표준은 일반적으로 사용되는 JavaScript 모듈 형식 및 로딩 시스템 인 CommonJS 및 AMD를 대체합니다.</p>
+<p>버전 1.3부터 Meteor는 <a href="https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import" target="_blank" rel="external">ES2015 모듈</a>을 전폭 지원합니다. ES2015 모듈 표준은 일반적으로 사용되는 JavaScript 모듈 형식 및 로딩 시스템인 <a href="http://requirejs.org/docs/commonjs.html" target="_blank" rel="external">CommonJS</a> 및 <a href="https://github.com/amdjs/amdjs-api" target="_blank" rel="external">AMD</a>를 대체합니다. </p>
 <p>In ES2015, you can make variables available outside a file using the <code>export</code> keyword. To use the variables somewhere else, you must <code>import</code> them using the path to the source. Files that export some variables are called “modules”, because they represent a unit of reusable code. Explicitly importing the modules and packages you use helps you write your code in a modular way, avoiding the introduction of global symbols and “action at a distance”.</p>
 <p>ES2015에서는 export 키워드를 사용하여 파일 외부에서 변수를 사용할 수 있습니다. 다른 곳에서 변수를 사용하려면 소스에 대한 경로를 사용하여 변수를 가져와야합니다. 일부 변수를 내보내는 파일은 재사용 가능한 코드의 단위이기 때문에 “모듈”이라고합니다. 명시 적으로 모듈과 패키지를 가져 오면 코드를 모듈 방식으로 작성하여 전역 기호 및 “멀리에서의 조치”를 피할 수 있습니다.</p>
 <p>Since this is a new feature introduced in Meteor 1.3, you will find a lot of code online that uses the older, more centralized conventions built around packages and apps declaring global symbols. This old system still works, so to opt-in to the new module system, code must be placed inside the <code>imports/</code> directory in your application. We expect a future release of Meteor will turn on modules by default for all code, because this is more aligned with how developers in the wider JavaScript community write their code.</p>
@@ -425,67 +426,102 @@
 <p>README 모듈 패키지에서 모듈 시스템에 대해 자세히 읽을 수 있습니다. 이 패키지는 ecma 스크립트 메타 패키지의 일부로 모든 새로운 Meteor 앱에 자동으로 포함되므로 대부분의 앱은 모듈을 바로 사용하기 위해 아무 것도 할 필요가 없습니다.</p>
 <h3 id="intro-to-import-export">Introduction to using <code>import</code> and <code>export</code></h3>
 
+<p>가져 오기 및 내보내기 사용 소개</p>
 <p>Meteor allows you to <code>import</code> not only JavaScript in your application, but also CSS and HTML to control load order:</p>
+<p>Meteor를 사용하면 응용 프로그램의 JavaScript뿐만 아니라 CSS 및 HTML을 가져 와서로드 순서를 제어 할 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'../../api/lists/methods.js'</span>;  <span class="comment">// import from relative path</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'/imports/startup/client'</span>;     <span class="comment">// import module with index.js from absolute path</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./loading.html'</span>;              <span class="comment">// import Blaze compiled HTML from relative path</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'/imports/ui/style.css'</span>;       <span class="comment">// import CSS from absolute path</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>For more ways to import styles, see the <a href="build-tool.html#css-importing">Build System</a> article.</p>
+<p>For more ways to import styles, see the <a href="build-tool.html#css-importing">Build System</a> article.<br>스타일 가져 오기에 대한 더 많은 방법은 시스템 빌드 기사를 참조하십시오.</p>
 </blockquote>
 <p>Meteor also supports the standard ES2015 modules <code>export</code> syntax:</p>
+<p>스타일 가져 오기에 대한 더 많은 방법은 시스템 빌드 기사를 참조하십시오.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> listRenderHold = LaunchScreen.hold();  <span class="comment">// named export</span></span><br><span class="line"><span class="keyword">export</span> &#123; Todos &#125;;                                   <span class="comment">// named export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Lists;                               <span class="comment">// default export</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Collection(<span class="string">'lists'</span>);             <span class="comment">// default export</span></span><br></pre></td></tr></table></figure>
 <h3 id="importing-from-packages">Importing from packages</h3>
 
+<p>패키지에서 가져 오기</p>
 <p>In Meteor, it is also simple and straightforward to use the <code>import</code> syntax to load npm packages on the client or server and access the package’s exported symbols as you would with any other module. You can also import from Meteor Atmosphere packages, but the import path must be prefixed with <code>meteor/</code> to avoid conflict with the npm package namespace. For example, to import <code>moment</code> from npm and <code>HTTP</code> from Atmosphere:</p>
+<p>Meteor에서는 가져 오기 구문을 사용하여 클라이언트 또는 서버에서 npm 패키지를로드하고 다른 모듈과 마찬가지로 패키지의 내 보낸 심볼에 액세스하는 것도 간단하고 간단합니다. Meteor Atmosphere 패키지에서 가져올 수도 있지만 npm 패키지 이름 공간과의 충돌을 피하기 위해 가져 오기 경로 앞에 meteor / 접두사가 있어야합니다. 예를 들어, Atmosphere에서 npm 및 HTTP의 순간을 가져 오려면 다음을 입력하십시오.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;          <span class="comment">// default import from npm</span></span><br><span class="line"><span class="keyword">import</span> &#123; HTTP &#125; <span class="keyword">from</span> <span class="string">'meteor/http'</span>;   <span class="comment">// named import from Atmosphere</span></span><br></pre></td></tr></table></figure>
 <p>For more details using <code>imports</code> with packages see <a href="using-packages.html">Using Packages</a> in the Meteor Guide.</p>
+<p>패키지와 함께 가져 오기 사용에 대한 자세한 내용은 Meteor Guide에서 패키지 사용을 참조하십시오.</p>
 <h3 id="using-require">Using <code>require</code></h3>
 
+<p>요구 사항 사용</p>
 <p>In Meteor, <code>import</code> statements compile to CommonJS <code>require</code> syntax. However, as a convention we encourage you to use <code>import</code>.</p>
+<p>Meteor에서 CommonJS가 필요로하는 문법을 컴파일하여 import 문을 작성하십시오. 그러나 대회로서 우리는 당신이 수입을 사용하도록 권장합니다.</p>
 <p>With that said, in some situations you may need to call out to <code>require</code> directly. One notable example is when requiring client or server-only code from a common file. As <code>import</code>s must be at the top-level scope, you may not place them within an <code>if</code> statement, so you’ll need to write code like:</p>
+<p>그렇게 말하면 어떤 상황에서는 직접 요구해야 할 수도 있습니다. 한 가지 주목할만한 예는 공통 파일에서 클라이언트 또는 서버 전용 코드를 요구할 때입니다. 가져 오기가 최상위 범위에 있어야하므로 if 문 내에 가져올 수 없으므로 다음과 같은 코드를 작성해야합니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Meteor.isClient) &#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">'./client-only-file.js'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Note that dynamic calls to <code>require()</code> (where the name being required can change at runtime) cannot be analyzed correctly and may result in broken client bundles.</p>
+<p>require () (필요한 이름은 런타임에 변경 될 수 있음)에 대한 동적 호출은 올바르게 분석 될 수 없으며 클라이언트 번들이 손상 될 수 있습니다.</p>
 <p>If you need to <code>require</code> from an ES2015 module with a <code>default</code> export, you can grab the export with <code>require(&quot;package&quot;).default</code>.</p>
+<p>ES2015 모듈에서 기본 내보내기를 요구해야하는 경우 require(“package”).default를 사용하여 내보내기를 가져올 수 있습니다.</p>
 <p>Another situation where you’ll need to use <code>require</code> is in CoffeeScript files. As CS doesn’t support the <code>import</code> syntax yet, you should use <code>require</code>:</p>
+<p><code>require</code>를 사용해야하는 또 다른 상황은 CoffeeScript 파일에 있습니다. CS가<code>import</code> 문법을 아직 지원하지 않기 때문에<code>require</code>를 사용해야합니다.</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123; FlowRouter &#125; = require <span class="string">'meteor/kadira:flow-router'</span></span><br><span class="line">React = require <span class="string">'react'</span></span><br></pre></td></tr></table></figure>
 <h3 id="exporting-from-coffeescript">Exporting with CoffeeScript</h3>
 
+<p>CoffeeScript로 내보내기</p>
 <p>When using CoffeeScript, not only the syntax to import variables is different, but also the export has to be done in a different way. Variables to be exported are put in the <code>exports</code> object:</p>
+<p>CoffeeScript를 사용할 때 변수를 가져 오는 구문이 다를뿐만 아니라 내보내기도 다른 방식으로 수행해야합니다. export 될 변수는<code>exports</code> 객체에 저장됩니다 :</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.Lists = ListsCollection <span class="string">'lists'</span></span><br></pre></td></tr></table></figure>
 <h2 id="javascript-structure">File structure</h2>
 
 <p>To fully use the module system and ensure that our code only runs when we ask it to, we recommend that all of your application code should be placed inside the <code>imports/</code> directory. This means that the Meteor build system will only bundle and include that file if it is referenced from another file using an <code>import</code> (also called “lazy evaluation or loading”).</p>
+<p>모듈 시스템을 완전히 사용하고 요청할 때 코드 만 실행되도록하려면 모든 응용 프로그램 코드를<code>imports/</code>디렉토리에 두는 것이 좋습니다. 즉, Meteor 빌드 시스템은 ‘import’(“지연 평가 또는로드”라고도 함)를 사용하여 다른 파일에서 참조되는 경우에만 해당 파일을 번들하고 포함합니다.</p>
 <p>Meteor will load all files outside of any directory named <code>imports/</code> in the application using the <a href="#load-order">default file load order</a> rules (also called “eager evaluation or loading”). It is recommended that you create exactly two eagerly loaded files, <code>client/main.js</code> and <code>server/main.js</code>, in order to define explicit entry points for both the client and the server. Meteor ensures that any file in any directory named <code>server/</code> will only be available on the server, and likewise for files in any directory named <code>client/</code>. This also precludes trying to <code>import</code> a file to be used on the server from any directory named <code>client/</code> even if it is nested in an <code>imports/</code> directory and vice versa for importing client files from <code>server/</code>.</p>
+<p>Meteor는 기본 파일로드 순서 규칙 ( “eager evaluation or loading”이라고도 함)을 사용하여 응용 프로그램의 imports / 디렉토리에있는 모든 파일 외부의 모든 파일을로드합니다. 클라이언트와 서버 모두에 대한 명시 적 진입 점을 정의하려면 열심히로드 된 두 개의 파일, client / main.js 및 server / main.js를 정확하게 만드는 것이 좋습니다. Meteor는 server / 디렉토리에있는 모든 파일이 서버에서만 사용 가능하고 client /라는 디렉토리에있는 파일에서도 사용 가능함을 보장합니다. 또한 server /에서 디렉토리로 클라이언트 파일을 가져 오기 위해 import / 디렉토리에 중첩 된 경우에도 클라이언트 /에있는 디렉토리에서 서버에서 사용할 파일을 가져 오는 것을 방해합니다.</p>
 <p>These <code>main.js</code> files won’t do anything themselves, but they should import some <em>startup</em> modules which will run immediately, on client and server respectively, when the app loads. These modules should do any configuration necessary for the packages you are using in your app, and import the rest of your app’s code.</p>
+<p>이 main.js 파일 자체는 아무 것도하지 않지만 앱이로드되면 클라이언트와 서버에서 즉시 실행되는 일부 시작 모듈을 가져와야합니다. 이 모듈은 앱에서 사용중인 패키지에 필요한 모든 구성을 수행하고 나머지 앱 코드를 가져와야합니다.</p>
 <h3 id="example-app-structure">Example directory layout</h3>
 
+<p>예제 디렉토리 레이아웃</p>
 <p>To start, let’s look at our <a href="https://github.com/meteor/todos" target="_blank" rel="external">Todos example application</a>, which is a great example to follow when structuring your app. Here’s an overview of its directory structure:</p>
+<p>우선, 우리의 [Todos example application] (<a href="https://github.com/meteor/todos)을" target="_blank" rel="external">https://github.com/meteor/todos)을</a> 보자. 이것은 앱을 구조화 할 때 따라야 할 훌륭한 예이다. 다음은 디렉토리 구조에 대한 개요입니다.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">imports/</span><br><span class="line">  startup/</span><br><span class="line">    client/</span><br><span class="line">      index.js                 <span class="comment"># import client startup through a single index entry point</span></span><br><span class="line">      routes.js                <span class="comment"># set up all routes in the app</span></span><br><span class="line">      useraccounts-configuration.js <span class="comment"># configure login templates</span></span><br><span class="line">    server/</span><br><span class="line">      fixtures.js              <span class="comment"># fill the DB with example data on startup</span></span><br><span class="line">      index.js                 <span class="comment"># import server startup through a single index entry point</span></span><br><span class="line"></span><br><span class="line">  api/</span><br><span class="line">    lists/                     <span class="comment"># a unit of domain logic</span></span><br><span class="line">      server/</span><br><span class="line">        publications.js        <span class="comment"># all list-related publications</span></span><br><span class="line">        publications.tests.js  <span class="comment"># tests for the list publications</span></span><br><span class="line">      lists.js                 <span class="comment"># definition of the Lists collection</span></span><br><span class="line">      lists.tests.js           <span class="comment"># tests for the behavior of that collection</span></span><br><span class="line">      methods.js               <span class="comment"># methods related to lists</span></span><br><span class="line">      methods.tests.js         <span class="comment"># tests for those methods</span></span><br><span class="line"></span><br><span class="line">  ui/</span><br><span class="line">    components/                <span class="comment"># all reusable components in the application</span></span><br><span class="line">                               <span class="comment"># can be split by domain if there are many</span></span><br><span class="line">    layouts/                   <span class="comment"># wrapper components for behaviour and visuals</span></span><br><span class="line">    pages/                     <span class="comment"># entry points for rendering used by the router</span></span><br><span class="line"></span><br><span class="line">client/</span><br><span class="line">  main.js                      <span class="comment"># client entry point, imports all client code</span></span><br><span class="line"></span><br><span class="line">server/</span><br><span class="line">  main.js                      <span class="comment"># server entry point, imports all server code</span></span><br></pre></td></tr></table></figure>
 <h3 id="structuring-imports">Structuring imports</h3>
 
+<p>imports 구조화</p>
 <p>Now that we have placed all files inside the <code>imports/</code> directory, let’s think about how best to organize our code using modules. It makes sense to put all code that runs when your app starts in an <code>imports/startup</code> directory. Another good idea is splitting data and business logic from UI rendering code. We suggest using directories called <code>imports/api</code> and <code>imports/ui</code> for this logical split.</p>
+<p>이제 모든 파일을<code>imports /</code>디렉토리에 넣었으므로 모듈을 사용하여 코드를 구성하는 최선의 방법을 생각해 봅시다. 앱이 시작될 때 실행되는 모든 코드를<code>imports / startup</code> 디렉토리에 저장하는 것이 좋습니다. 또 다른 좋은 아이디어는 데이터와 비즈니스 로직을 UI 렌더링 코드에서 분리하는 것입니다. 이 논리적 인 분할을 위해<code>imports / api</code>와`imports / ui ‘라는 디렉토리를 사용할 것을 제안합니다.</p>
 <p>Within the <code>imports/api</code> directory, it’s sensible to split the code into directories based on the domain that the code is providing an API for — typically this corresponds to the collections you’ve defined in your app. For instance in the Todos example app, we have the <code>imports/api/lists</code> and <code>imports/api/todos</code> domains. Inside each directory we define the collections, publications and methods used to manipulate the relevant domain data.</p>
+<p><code>imports / api</code> 디렉토리 내에서 코드가 API를 제공하는 도메인을 기반으로 디렉토리로 코드를 분할하는 것이 현명합니다. 일반적으로 이것은 앱에서 정의한 컬렉션에 해당합니다. 예를 들어 Todos 예제 애플리케이션에서 우리는<code>imports / api / lists</code>와<code>imports / api / todos</code> 도메인을 가지고 있습니다. 각 디렉토리 안에는 관련 도메인 데이터를 조작하는 데 사용되는 콜렉션, 발행물 및 방법이 정의되어 있습니다.</p>
 <blockquote>
 <p>Note: in a larger application, given that the todos themselves are a part of a list, it might make sense to group both of these domains into a single larger “list” module. The Todos example is small enough that we need to separate these only to demonstrate modularity.</p>
+<p>참고 : 큰 응용 프로그램에서는 할일 자체가 목록에 포함되어 있으므로이 두 도메인을 모두 하나의 큰 “목록”모듈로 그룹화하는 것이 좋습니다. Todos 예제는 모듈성을 입증하기 위해 이들을 분리 할만큼 충분히 작습니다.</p>
 </blockquote>
 <p>Within the <code>imports/ui</code> directory it typically makes sense to group files into directories based on the type of UI side code they define, i.e. top level <code>pages</code>, wrapping <code>layouts</code>, or reusable <code>components</code>.</p>
+<p><code>imports / ui</code> 디렉토리 내에서 정의 된 UI 사이드 코드의 유형, 즉 최상위<code>페이지</code>,<code>레이아웃</code>포장, 또는 재사용 가능한<code>구성 요소</code>에 따라 파일을 디렉토리로 그룹화하는 것이 일반적입니다.</p>
 <p>For each module defined above, it makes sense to co-locate the various auxiliary files with the base JavaScript file. For instance, a Blaze UI component should have its template HTML, JavaScript logic, and CSS rules in the same directory. A JavaScript module with some business logic should be co-located with the unit tests for that module.</p>
+<p>위에 정의 된 각 모듈에 대해 다양한 보조 파일을 기본 JavaScript 파일과 함께 배치하는 것이 좋습니다. 예를 들어, Blaze UI 구성 요소는 같은 디렉토리에 HTML, JavaScript 논리 및 CSS 규칙 템플릿이 있어야합니다. 비즈니스 로직이있는 JavaScript 모듈은 해당 모듈의 단위 테스트와 함께 배치해야합니다.</p>
 <h3 id="startup-files">Startup files</h3>
 
+<p>Startup 파일들</p>
 <p>Some of your code isn’t going to be a unit of business logic or UI, it’s just some setup or configuration code that needs to run in the context of the app when it starts up. In the Todos example app, the <code>imports/startup/client/useraccounts-configuration.js</code> file configures the <code>useraccounts</code> login templates (see the <a href="accounts.html">Accounts</a> article for more information about <code>useraccounts</code>). The <code>imports/startup/client/routes.js</code> configures all of the routes and then imports <em>all</em> other code that is required on the client:</p>
+<p>일부 코드는 비즈니스 논리 또는 UI의 단위가 될 수 없으며, 시작될 때 앱의 컨텍스트에서 실행해야하는 일부 설정 또는 구성 코드 일뿐입니다. Todos 예제 애플리케이션에서<code>imports / startup / client / useraccounts-configuration.js</code> 파일은<code>useraccounts</code> 로그인 템플릿을 설정합니다 (<code>accountaccounts</code>에 대한 더 자세한 정보는 [Accounts] (accounts.html) 문서를보십시오). <code>imports / startup / client / routes.js</code>는 모든 경로를 설정하고 클라이언트에 필요한 모든 다른 코드를 가져옵니다 :</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; FlowRouter &#125; <span class="keyword">from</span> <span class="string">'meteor/kadira:flow-router'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BlazeLayout &#125; <span class="keyword">from</span> <span class="string">'meteor/kadira:blaze-layout'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AccountsTemplates &#125; <span class="keyword">from</span> <span class="string">'meteor/useraccounts:core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Import to load these templates</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../../ui/layouts/app-body.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'../../ui/pages/root-redirector.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'../../ui/pages/lists-show-page.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'../../ui/pages/app-not-found.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Import to override accounts templates</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../../ui/accounts/accounts-templates.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Below here are the route definitions</span></span><br></pre></td></tr></table></figure>
 <p>We then import both of these files in <code>imports/startup/client/index.js</code>:</p>
+<p>다음 두 파일을 <code>imports/startup/client/index.js</code>에 들여옵니다 :</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./useraccounts-configuration.js'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./routes.js'</span>;</span><br></pre></td></tr></table></figure>
 <p>This makes it easy to then import all the client startup code with a single import as a module from our main eagerly loaded client entry point <code>client/main.js</code>:</p>
+<p>이렇게하면 우리의 주요 열심히로드 된 클라이언트 진입 점<code>client/main.js</code>에서 단일 가져 오기를 사용하여 모든 클라이언트 시작 코드를 모듈로 쉽게 가져올 수 있습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'/imports/startup/client'</span>;</span><br></pre></td></tr></table></figure>
 <p>On the server, we use the same technique of importing all the startup code in <code>imports/startup/server/index.js</code>:</p>
+<p>서버에서 우리는<code>imports / startup / server / index.js</code>에서 모든 시작 코드를 가져 오는 것과 같은 기술을 사용합니다 :</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This defines a starting set of data to be loaded if the app is loaded with an empty db.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../imports/startup/server/fixtures.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This file configures the Accounts package to define the UI of the reset password email.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../imports/startup/server/reset-password-email.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set up some rate limiting and other important security settings.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../imports/startup/server/security.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This defines all the collections, publications and methods that the application provides</span></span><br><span class="line"><span class="comment">// as an API to the client.</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'../imports/api/api.js'</span>;</span><br></pre></td></tr></table></figure>
 <p>Our main server entry point <code>server/main.js</code> then imports this startup module. You can see that here we don’t actually import any variables from these files - we just import them so that they execute in this order.</p>
+<p>그런 다음 주 서버 진입 점 server / main.js가이 시작 모듈을 가져옵니다. 여기서 우리는 실제로이 파일들로부터 어떤 변수도 가져 오지 않는다는 것을 알 수 있습니다 - 우리는 단지 이 순서대로 실행되도록 가져옵니다.</p>
 <h3 id="importing-meteor-globals">Importing Meteor “pseudo-globals”</h3>
 
+<p>Meteor “pseudo-globals” Importing</p>
 <p>For backwards compatibility Meteor 1.3 still provides Meteor’s global namespacing for the Meteor core package as well as for other Meteor packages you include in your application. You can also still directly call functions such as <a href="http://docs.meteor.com/#/full/meteor_publish" target="_blank" rel="external"><code>Meteor.publish</code></a>, as in previous versions of Meteor, without first importing them. However, it is recommended best practice that you first load all the Meteor “pseudo-globals” using the <code>import { Name } from &#39;meteor/package&#39;</code> syntax before using them. For instance:</p>
+<p>이전 버전과의 호환성을 위해 Meteor 1.3은 Meteor 코어 패키지뿐만 아니라 응용 프로그램에 포함 된 다른 Meteor 패키지에 대해서도 Meteor의 전역 이름 공간을 제공합니다. Meteor의 이전 버전에서와 같이 [<code>Meteor.publish</code>] (<a href="http://docs.meteor.com/#/full/meteor_publish)와" target="_blank" rel="external">http://docs.meteor.com/#/full/meteor_publish)와</a> 같은 함수를 직접 가져올 필요없이 직접 호출 할 수도 있습니다. 그러나 사용하기 전에 meteor “pseudo-globals”를<code>meteor / package&#39;</code>에서`import {Name} ‘구문을 사용하여 먼저로드하는 것이 가장 좋습니다. 예를 들면 :</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Meteor &#125; <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; EJSON &#125; <span class="keyword">from</span> <span class="string">'meteor/ejson'</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="load-order">Default file load order</h2>
 
+<p>기본 파일로드 순서</p>
 <p>Even though it is recommended that you write your application to use ES2015 modules and the <code>imports/</code> directory, Meteor 1.3 continues to support eager loading of files, using these default load order rules, to provide backwards compatibility with applications written for Meteor 1.2 and earlier. You may combine both eager loading and lazy loading using <code>import</code> in a single app. Any import statements are evaluated in the order they are listed in a file when that file is loaded and evaluated using these rules.</p>
+<p>ES2015 모듈과 imports / 디렉토리를 사용하도록 애플리케이션을 작성하는 것이 좋지만, Meteor 1.3은 이러한 기본로드 순서 규칙을 사용하여 Meteor 1.2 및 이전 버전 용으로 작성된 애플리케이션과의 하위 호환성을 제공하기 위해 계속해서 파일로드를 지원합니다. 하나의 앱에서 가져 오기를 사용하여 eager loading과 lazy loading을 결합 할 수 있습니다. 모든 import 문은 파일이로드되고이 규칙을 사용하여 평가 될 때 파일에 나열된 순서대로 평가됩니다.</p>
 <p>There are several load order rules. They are <em>applied sequentially</em> to all applicable files in the application, in the priority given below:</p>
 <ol>
 <li>HTML template files are <strong>always</strong> loaded before everything else</li>
@@ -494,46 +530,70 @@
 <li>Files with deeper paths are loaded next</li>
 <li>Files are then loaded in alphabetical order of the entire path</li>
 </ol>
+<p>로드 순서 규칙은 여러 가지가 있습니다. 아래의 우선 순위에 따라 응용 프로그램의 모든 해당 파일에 순차적으로 적용됩니다.</p>
+<ol>
+<li>HTML 템플릿 파일은 항상 다른 파일들이 로드 되기전에 먼저 로드 됩니다.</li>
+<li><code>main.</code>으로 시작하는 파일 <strong>마지막</strong>으로 로드 됩니다.</li>
+<li><code>lib/</code> 디렉토리 내의 파일들이 다음에 로드 됩니다.</li>
+<li>더 깊은 경로에 있는 파일이 다음에 로드 됩니다.</li>
+<li>파일은 전체 경로의 알파벳 순서로 로드 됩니다.</li>
+</ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nav.html</span><br><span class="line">main.html</span><br><span class="line">client/lib/methods.js</span><br><span class="line">client/lib/styles.js</span><br><span class="line">lib/feature/styles.js</span><br><span class="line">lib/collections.js</span><br><span class="line">client/feature-y.js</span><br><span class="line">feature-x.js</span><br><span class="line">client/main.js</span><br></pre></td></tr></table></figure>
 <p>For example, the files above are arranged in the correct load order. <code>main.html</code> is loaded second because HTML templates are always loaded first, even if it begins with <code>main.</code>, since rule 1 has priority over rule 2. However, it will be loaded after <code>nav.html</code> because rule 2 has priority over rule 5.</p>
+<p>예를 들어, 위의 파일은 올바른 로드 순서로 정렬됩니다. main.html은 규칙 템플릿보다 우선 순위가 높으므로 HTML 템플릿은 항상 첫 번째로로드되기 때문에 두 번째로로드됩니다. 규칙 2가 규칙 5보다 우선하므로 nav.html 뒤에 로드됩니다.</p>
 <p><code>client/lib/styles.js</code> and <code>lib/feature/styles.js</code> have identical load order up to rule 4; however, since <code>client</code> comes before <code>lib</code> alphabetically, it will be loaded first.</p>
+<p><code>client / lib / styles.js</code>와<code>lib / feature / styles.js</code>는 규칙 4까지 동일한로드 순서를가집니다. 그러나,<code>client</code>는 알파벳순으로<code>lib</code> 앞에 오기 때문에 먼저로드 될 것입니다.</p>
 <blockquote>
 <p>You can also use <a href="http://docs.meteor.com/#/full/meteor_startup" target="_blank" rel="external">Meteor.startup</a> to control when run code is run on both the server and the client.</p>
+<p>[Meteor.startup] (<a href="http://docs.meteor.com/#/full/meteor_startup)을" target="_blank" rel="external">http://docs.meteor.com/#/full/meteor_startup)을</a> 사용하여 실행 코드가 서버와 클라이언트 모두에서 실행되는시기를 제어 할 수도 있습니다.</p>
 </blockquote>
 <h3 id="special-directories">Special directories</h3>
 
+<p>특수 디렉토리</p>
 <p>By default, any JavaScript files in your Meteor application folder are bundled and loaded on both the client and the server. However, the names of the files and directories inside your project can affect their load order, where they are loaded, and some other characteristics. Here is a list of file and directory names that are treated specially by Meteor:</p>
+<p>기본적으로, Meteor 애플리케이션 폴더에있는 JavaScript 파일은 번들로로드되어 클라이언트와 서버 모두에로드됩니다. 그러나 프로젝트 내부의 파일 및 디렉토리 이름은로드 순서,로드 위치 및 기타 특성에 영향을 줄 수 있습니다. 다음은 Meteor가 특별히 처리하는 파일 및 디렉토리 이름 목록입니다.</p>
 <ul>
 <li><p><strong>imports</strong></p>
 <p>  Any directory named <code>imports/</code> is not loaded anywhere and files must be imported using <code>import</code>.</p>
+<p>  <code>imports /</code>라는 이름의 디렉토리는 어디에도로드되지 않고<code>import</code>를 사용하여 파일을 가져와야합니다.</p>
 </li>
 <li><p><strong>node_modules</strong></p>
 <p>  Any directory named <code>node_modules/</code> is not loaded anywhere. node.js packages installed into <code>node_modules</code> directories must be imported using <code>import</code> or by using <code>Npm.depends</code> in <code>package.js</code>.</p>
+<p>  <code>node_modules /</code>라는 디렉토리는 어디에도로드되지 않습니다. <code>node_modules</code> 디렉토리에 인스톨 된 node.js 패키지는<code>import</code> 또는<code>package.js</code>의<code>Npm.depends</code>를 사용하여 임포트해야합니다.</p>
 </li>
 <li><p><strong>client</strong></p>
 <p>  Any directory named <code>client/</code> is not loaded on the server. Similar to wrapping your code in <code>if (Meteor.isClient) { ... }</code>. All files loaded on the client are automatically concatenated and minified when in production mode. In development mode, JavaScript and CSS files are not minified, to make debugging easier. CSS files are still combined into a single file for consistency between production and development, because changing the CSS file’s URL affects how URLs in it are processed.</p>
+<p>  <code>client /</code>라는 디렉토리는 서버에로드되지 않습니다. <code>if (Meteor.isClient) {...}</code>에 코드를 래핑하는 것과 비슷합니다. 프로덕션 모드에서는 클라이언트에로드 된 모든 파일이 자동으로 연결되고 축소됩니다. 개발 모드에서 JavaScript 및 CSS 파일은 디버깅을 쉽게하기 위해 축소되지 않습니다. CSS 파일의 URL을 변경하면 해당 URL의 처리 방법이 영향을 받기 때문에 CSS 파일은 계속해서 제작과 개발의 일관성을 위해 하나의 파일로 결합됩니다.</p>
 <blockquote>
 <p>HTML files in a Meteor application are treated quite a bit differently from a server-side framework.  Meteor scans all the HTML files in your directory for three top-level elements: <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, and <code>&lt;template&gt;</code>.  The head and body sections are separately concatenated into a single head and body, which are transmitted to the client on initial page load.</p>
+<p>Meteor 응용 프로그램의 HTML 파일은 서버 측 프레임 워크와는 조금 다르게 처리됩니다. Meteor는 디렉토리에서 <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> 및 <code>&lt;template&gt;</code>의 세 가지 최상위 요소에 대한 모든 HTML 파일을 검색합니다. 헤드 및 본문 섹션은 개별적으로 단일 헤드 및 본문으로 연결되며 초기 페이지로드시 클라이언트로 전송됩니다.</p>
 </blockquote>
 </li>
 <li><p><strong>server</strong></p>
 <p>  Any directory named <code>server/</code> is not loaded on the client. Similar to wrapping your code in <code>if (Meteor.isServer) { ... }</code>, except the client never even receives the code. Any sensitive code that you don’t want served to the client, such as code containing passwords or authentication mechanisms, should be kept in the <code>server/</code> directory.</p>
+<p>  <code>server /</code>라는 이름의 디렉토리는 클라이언트에로드되지 않습니다. 클라이언트가 코드를받지 못한다는 것을 제외하고는<code>if (Meteor.isServer) {...}</code>에 코드를 래핑하는 것과 비슷합니다. 암호 또는 인증 메커니즘이 포함 된 코드와 같이 클라이언트에 제공하지 않으려는 민감한 코드는<code>server /</code>디렉토리에 보관해야합니다.</p>
 <p>  Meteor gathers all your JavaScript files, excluding anything under the <code>client</code>, <code>public</code>, and <code>private</code> subdirectories, and loads them into a Node.js server instance. In Meteor, your server code runs in a single thread per request, not in the asynchronous callback style typical of Node.</p>
+<p>  Meteor는<code>client</code>,<code>public</code> 및<code>private</code> 하위 디렉토리에있는 것을 제외한 모든 JavaScript 파일을 수집하여 Node.js 서버 인스턴스로로드합니다. Meteor에서 서버 코드는 노드별로 일반적인 비동기 콜백 스타일이 아닌 요청 당 단일 스레드로 실행됩니다.</p>
 </li>
 <li><p><strong>public</strong></p>
 <p>  All files inside a top-level directory called <code>public/</code> are served as-is to the client. When referencing these assets, do not include <code>public/</code> in the URL, write the URL as if they were all in the top level. For example, reference <code>public/bg.png</code> as <code>&lt;img src=&#39;/bg.png&#39; /&gt;</code>. This is the best place for <code>favicon.ico</code>, <code>robots.txt</code>, and similar files.</p>
+<p>  최상위 디렉토리 인<code>public /</code>안에있는 모든 파일은있는 그대로 클라이언트에게 제공됩니다. 이러한 애셋을 참조 할 때 URL에<code>public /</code>을 포함하지 말고 URL이 모두 최상위 레벨 인 것처럼 작성하십시오. 예를 들어<code>public / bg.png</code>를<code>&lt;img src = &#39;/ bg.png&#39;/&gt;</code>로 참조하십시오. 이것은<code>favicon.ico</code>,<code>robots.txt</code> 및 유사한 파일들을위한 최고의 장소입니다.</p>
 </li>
 <li><p><strong>private</strong></p>
 <p>  All files inside a top-level directory called <code>private/</code> are only accessible from server code and can be loaded via the <a href="http://docs.meteor.com/#/full/assets_getText" target="_blank" rel="external"><code>Assets</code></a> API. This can be used for private data files and any files that are in your project directory that you don’t want to be accessible from the outside.</p>
+<p>  <code>private /</code>라는 최상위 디렉토리에있는 모든 파일은 서버 코드에서만 액세스 할 수 있으며 [<code>Assets</code>] (<a href="http://docs.meteor.com/#/full/assets_getText" target="_blank" rel="external">http://docs.meteor.com/#/full/assets_getText</a>) API를 통해로드 할 수 있습니다. 외부에서 액세스 할 수 없도록하려는 개인 데이터 파일 및 프로젝트 디렉토리에있는 모든 파일에 사용할 수 있습니다.</p>
 </li>
 <li><p><strong>client/compatibility</strong></p>
 <p>  This folder is for compatibility with JavaScript libraries that rely on variables declared with var at the top level being exported as globals. Files in this  directory are executed without being wrapped in a new variable scope. These files are executed before other client-side JavaScript files.</p>
+<p>  이 폴더는 최상위 수준에서 var로 선언 된 변수를 전역 변수로 내보내는 JavaScript 라이브러리와의 호환성을위한 것입니다. 이 디렉토리의 파일은 새 변수 범위에 래핑되지 않고 실행됩니다. 이 파일은 다른 클라이언트 측 JavaScript 파일보다 먼저 실행됩니다.</p>
 <blockquote>
 <p>It is recommended to use npm for 3rd party JavaScript libraries and use <code>import</code> to control when files are loaded.</p>
+<p>타사 JavaScript 라이브러리에는 npm을 사용하고 파일로드 시간을 제어하려면<code>import</code>를 사용하는 것이 좋습니다.</p>
 </blockquote>
 </li>
 <li><p><strong>tests</strong></p>
 <p>  Any directory named <code>tests/</code> is not loaded anywhere. Use this for any test code you want to run using a test runner outside of <a href="testing.html">Meteor’s built-in test tools</a>.</p>
+<p>  <code>tests /</code>라는 이름의 디렉토리는 어디에도로드되지 않습니다. [Meteor에 내장 된 테스트 도구] (testing.html) 외부의 테스트 러너를 사용하여 실행하려는 테스트 코드에이 코드를 사용하십시오.</p>
 </li>
 </ul>
 <p>The following directories are also not loaded as part of your app code:</p>
@@ -543,12 +603,18 @@
 <li><code>cordova-build-override/</code>: Used for <a href="mobile.html#advanced-build">advanced mobile build customizations</a></li>
 <li><code>programs</code>: For legacy reasons</li>
 </ul>
+<p>다음 디렉토리는 앱 코드의 일부로로드되지 않습니다.</p>
+<p>-<code>.meteor</code>와<code>.git</code>와 같이 이름이 점으로 시작하는 파일 / 디렉토리<br>-<code>packages /</code>: 로컬 패키지에 사용됩니다.<br>-<code>cordova-build-override /</code>: [고급 모바일 빌드 사용자 정의] (mobile.html # advanced-build)에 사용됩니다.<br>-<code>프로그램</code>: 유산을 이유로</p>
 <h3 id="files-outside">Files outside special directories</h3>
 
+<p>특수 디렉토리 외부의 파일</p>
 <p>All JavaScript files outside special directories are loaded on both the client and the server. Meteor provides the variables <a href="http://docs.meteor.com/#/full/meteor_isserver" target="_blank" rel="external"><code>Meteor.isClient</code></a> and <a href="http://docs.meteor.com/#/full/meteor_isserver" target="_blank" rel="external"><code>Meteor.isServer</code></a> so that your code can alter its behavior depending on whether it’s running on the client or the server.</p>
+<p>특수 디렉토리 외부의 모든 JavaScript 파일은 클라이언트와 서버 모두에로드됩니다. Meteor는 [Meteor.isClient<code>] (http://docs.meteor.com/#/full/meteor_isserver) 및 [</code>Meteor.isServer`] (<a href="http://docs.meteor.com/#/full" target="_blank" rel="external">http://docs.meteor.com/#/full</a>) 변수를 제공합니다. / meteor_isserver)를 사용하여 코드가 클라이언트 또는 서버에서 실행 중인지 여부에 따라 코드의 동작을 변경할 수 있습니다.</p>
 <p>CSS and HTML files outside special directories are loaded on the client only and cannot be used from server code.</p>
+<p>특수 디렉토리 외부의 CSS 및 HTML 파일은 클라이언트에만로드되며 서버 코드에서 사용할 수 없습니다.</p>
 <h2 id="splitting-your-app">Splitting into multiple apps</h2>
 
+<p>여러 앱으로 분할</p>
 <p>If you are writing a sufficiently complex system, there can come a time where it makes sense to split your code up into multiple applications. For example you may want to create a separate application for the administration UI (rather than checking permissions all through the admin part of your site, you can check once), or separate the code for the mobile and desktop versions of your app.</p>
 <p>Another very common use case is splitting a worker process away from your main application so that expensive jobs do not impact the user experience of your visitors by locking up a single web server.</p>
 <p>There are some advantages of splitting your application in this way:</p>
@@ -561,8 +627,21 @@
 </li>
 </ul>
 <p>However there are some challenges to splitting your code in this way that should be considered before jumping in.</p>
+<p>충분히 복잡한 시스템을 작성한다면 코드를 여러 응용 프로그램으로 분할하는 것이 의미있는 시간이 올 수 있습니다. 예를 들어 관리 UI 용 별도의 응용 프로그램을 만들 수도 있습니다 (사이트의 관리 부분을 통해 권한을 모두 확인하거나 한 번만 확인). 앱의 모바일 버전과 데스크톱 버전에 대한 코드를 구분할 수 있습니다.</p>
+<p>매우 일반적인 사용 사례는 작업자 프로세스를 주 응용 프로그램과 분리하여 비싼 작업이 단일 웹 서버를 잠궈 방문자의 사용자 경험에 영향을 미치지 않도록하는 것입니다.</p>
+<p>이 방법으로 응용 프로그램을 분할하면 다음과 같은 이점이 있습니다.</p>
+<ul>
+<li><p>특정 유형의 사용자가 절대로 사용하지 않을 코드를 분리하면 클라이언트 JavaScript 번들이 상당히 작아 질 수 있습니다.</p>
+</li>
+<li><p>서로 다른 확장 설정으로 다른 응용 프로그램을 배포하고 다르게 보안 할 수 있습니다 (예 : 관리 응용 프로그램에 대한 액세스를 방화벽 뒤의 사용자로 제한 할 수 있음).</p>
+</li>
+<li><p>조직의 여러 팀이 서로 다른 응용 프로그램에서 독립적으로 작업하도록 허용 할 수 있습니다.</p>
+</li>
+</ul>
+<p>그러나 점프하기 전에 고려해야 할이 방법으로 코드를 분할하는 데는 몇 가지 어려움이 있습니다.</p>
 <h3 id="sharing-code">Sharing code</h3>
 
+<p>코드 공유하기</p>
 <p>The primary challenge is properly sharing code between the different applications you are building. The simplest approach to deal with this issue is to simply deploy the <em>same</em> application on different web servers, controlling the behavior via different <a href="deployment.html#environment">settings</a>. This approach allows you to easily deploy different versions with different scaling behavior but doesn’t enjoy most of the other advantages stated above.</p>
 <p>If you want to create Meteor applications with separate code, you’ll have some modules that you’d like to share between them. If those modules are something the wider world could use, you should consider <a href="writing-packages.html">publishing them to a package system</a>, either npm or Atmosphere, depending on whether the code is Meteor-specific or otherwise.</p>
 <p>If the code is private, or of no interest to others, it typically makes sense to simply include the same module in both applications (you <em>can</em> do this with <a href="https://www.npmjs.com/private-modules" target="_blank" rel="external">private npm modules</a>). There are several ways to do this:</p>
@@ -572,18 +651,34 @@
 <li><p>alternatively, if you include both applications in a single repository, you can use symbolic links to include the common module inside both apps.</p>
 </li>
 </ul>
+<p>주요 과제는 구축중인 여러 응용 프로그램간에 코드를 올바르게 공유하는 것입니다. 이 문제를 다루는 가장 간단한 방법은 다른 웹 서버에 <em>동일한</em> 응용 프로그램을 배포하고 다른 <a href="deployment.html#environment">설정</a>을 통해 동작을 제어하는 ​​것입니다. 이 방법을 사용하면 크기 조정 동작이 다른 여러 버전을 쉽게 배포 할 수 있지만 위에 언급 한 대부분의 이점을 누리지 못합니다.</p>
+<p>별도의 코드로 Meteor 응용 프로그램을 작성하려면 두 모듈 사이에서 공유 할 모듈이 있어야합니다. 그 모듈이 더 넓은 세계에서 사용할 수있는 것이라면, 코드가 유성 특유인지 아닌지에 따라 <a href="writing-packages.html">포장 시스템에 게시하기</a> (npm 또는 Atmosphere)를 고려해야합니다.</p>
+<p>코드가 비공개이거나 다른 모듈에 관심이없는 경우 일반적으로 두 모듈 모두에 동일한 모듈을 포함시키는 것이 좋습니다 (<a href="https://www.npmjs.com/private-modules" target="_blank" rel="external">private npm modules</a>). 이를 수행하는 방법에는 여러 가지가 있습니다.</p>
+<ul>
+<li>직접적인 접근은 공통 코드를 두 응용 프로그램의 <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="external">git submodule</a>으로 포함시키는 것입니다.</li>
+<li>또는 두 응용 프로그램을 단일 저장소에 포함하는 경우 심볼 링크를 사용하여 두 응용 프로그램 내에 공통 모듈을 포함 할 수 있습니다.</li>
+</ul>
 <h3 id="sharing-data">Sharing data</h3>
 
+<p>데이터 공유하기</p>
 <p>Another important consideration is how you’ll share the data between your different applications.</p>
 <p>The simplest approach is to point both applications at the same <code>MONGO_URL</code> and allow both applications to read and write from the database directly. This works well thanks to Meteor’s support for reactivity through the database. When one app changes some data in MongoDB, users of any other app connected to the database will see the changes immediately thanks to Meteor’s livequery.</p>
 <p>However, in some cases it’s better to allow one application to be the master and control access to the data for other applications via an API. This can help if you want to deploy the different applications on different schedules and need to be conservative about how the data changes.</p>
 <p>The simplest way to provide a server-server API is to use Meteor’s built-in DDP protocol directly. This is the same way your Meteor client gets data from your server, but you can also use it to communicate between different applications. You can use <a href="http://docs.meteor.com/#/full/ddp_connect" target="_blank" rel="external"><code>DDP.connect()</code></a> to connect from a “client” server to the master server, and then use the connection object returned to make method calls and read from publications.</p>
+<p>또 다른 중요한 고려 사항은 서로 다른 응용 프로그램간에 데이터를 공유하는 방법입니다.</p>
+<p>가장 간단한 접근법은 두 응용 프로그램이 같은<code>MONGO_URL</code>을 가리 키도록하고 두 응용 프로그램 모두 데이터베이스에서 직접 읽고 쓸 수있게하는 것입니다. 이것은 Meteor의 데이터베이스를 통한 반응성 지원 덕분에 효과적입니다. 한 응용 프로그램이 MongoDB에서 일부 데이터를 변경하면 Meteor의 라이브 쿼리 덕분에 데이터베이스에 연결된 다른 앱 사용자가 변경 사항을 즉시 볼 수 있습니다.</p>
+<p>그러나 어떤 경우에는 하나의 응용 프로그램을 마스터로 허용하고 API를 통해 다른 응용 프로그램의 데이터에 대한 액세스를 제어하는 ​​것이 더 좋습니다. 이렇게하면 다른 응용 프로그램을 다른 일정에 배포하고 데이터가 어떻게 변경되는지에 대해 신중해야합니다.</p>
+<p>서버 - 서버 API를 제공하는 가장 간단한 방법은 Meteor에 내장 된 DDP 프로토콜을 직접 사용하는 것입니다. 이는 Meteor 클라이언트가 서버에서 데이터를 가져 오는 것과 같은 방법이지만 다른 응용 프로그램간에 통신하는 데에도 사용할 수 있습니다. <a href="http://docs.meteor.com/#/full/ddp_connect" target="_blank" rel="external"><code>DDP.connect()</code></a>를 사용하여”클라이언트”서버에서 마스터 서버로 연결 한 다음 반환 된 연결 개체를 사용할 수 있습니다 메소드 호출을 만들고 발행물을 읽습니다.</p>
 <h3 id="sharing-accounts">Sharing accounts</h3>
 
+<p>계정 공유하기</p>
 <p>If you have two servers that access the same database and you want authenticated users to make DDP calls across the both of them, you can use the <em>resume token</em> set on one connection to login on the other.</p>
 <p>If your user has connected to server A, then you can use <code>DDP.connect()</code> to open a connection to server B, and pass in server A’s resume token to authenticate on server B. As both servers are using the same DB, the same server token will work in both cases. The code to authenticate looks like this:</p>
+<p>동일한 데이터베이스에 액세스하는 두 대의 서버가 있고 인증 된 사용자가 두 서버 모두에서 DDP 호출을하도록하려면 한 연결에서 <em>resume token</em> 세트를 사용하여 다른 서버에서 로그인 할 수 있습니다.</p>
+<p>사용자가 서버 A에 연결했다면,<code>DDP.connect()</code>를 사용하여 서버 B에 대한 연결을 열고 서버 A의 재개 토큰을 전달하여 서버 B에서 인증 할 수 있습니다. 두 서버가 동일한 DB를 사용하기 때문에, 두 가지 경우 모두 동일한 서버 토큰이 작동합니다. 인증 코드는 다음과 같습니다.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This is server A's token as the default `Accounts` points at our server</span></span><br><span class="line"><span class="keyword">const</span> token = Accounts._storedLoginToken();</span><br><span class="line"></span><br><span class="line"><span class="comment">// We create a *second* accounts client pointing at server B</span></span><br><span class="line"><span class="keyword">const</span> app2 = DDP.connect(<span class="string">'url://of.server.b'</span>);</span><br><span class="line"><span class="keyword">const</span> accounts2 = <span class="keyword">new</span> AccountsClient(&#123; <span class="attr">connection</span>: app2 &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now we can login with the token. Further calls to `accounts2` will be authenticated</span></span><br><span class="line">accounts2.loginWithToken(token);</span><br></pre></td></tr></table></figure>
 <p>You can see a proof of concept of this architecture in an <a href="https://github.com/tmeasday/multi-app-accounts" target="_blank" rel="external">example repository</a>.</p>
+<p>이 아키텍처의 개념 증명을 [예제 저장소] (<a href="https://github.com/tmeasday/multi-app-accounts)에서" target="_blank" rel="external">https://github.com/tmeasday/multi-app-accounts)에서</a> 볼 수 있습니다.</p>
 
     </div>
   </div>
