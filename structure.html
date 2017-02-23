@@ -5,7 +5,7 @@
 
     <!-- Basic -->
     <title>Application Structure | Meteor Guide</title>
-    <meta name="description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps.">
+    <meta name="description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps. / Meteor 앱을 ES2015 모듈로 구성하고 코드를 클라이언트와 서버에 전달하고 코드를 여러 개의 응용 프로그램으로 분할하는 방법.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="../images/favicon.png" sizes="16x16 32x32 64x64">
 
@@ -13,12 +13,12 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://meteor.realgrid.com">
     <meta property="og:title" content="Application Structure | Meteor Guide">
-    <meta property="og:description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps.">
+    <meta property="og:description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps. / Meteor 앱을 ES2015 모듈로 구성하고 코드를 클라이언트와 서버에 전달하고 코드를 여러 개의 응용 프로그램으로 분할하는 방법.">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="@meteor">
     <meta name="twitter:title" content="Application Structure | Meteor Guide">
-    <meta name="twitter:description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps.">
+    <meta name="twitter:description" content="How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps. / Meteor 앱을 ES2015 모듈로 구성하고 코드를 클라이언트와 서버에 전달하고 코드를 여러 개의 응용 프로그램으로 분할하는 방법.">
     <meta name="twitter:image" content="">
 
     <!-- Misc -->
@@ -381,7 +381,7 @@
     <div class="header-content">
       <h1 class="title-page">Application Structure</h1>
       
-        <div class="subtitle-page">How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps.</div>
+        <div class="subtitle-page">How to structure your Meteor app with ES2015 modules, ship code to the client and server, and split your code into multiple apps. / Meteor 앱을 ES2015 모듈로 구성하고 코드를 클라이언트와 서버에 전달하고 코드를 여러 개의 응용 프로그램으로 분할하는 방법.</div>
       
 
       <div class="page-actions">
@@ -417,7 +417,7 @@
 <p>ES2015 모듈</p>
 <p>As of version 1.3, Meteor ships with full support for <a href="https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import" target="_blank" rel="external">ES2015 modules</a>. The ES2015 module standard is the replacement for <a href="http://requirejs.org/docs/commonjs.html" target="_blank" rel="external">CommonJS</a> and <a href="https://github.com/amdjs/amdjs-api" target="_blank" rel="external">AMD</a>, which are commonly used JavaScript module format and loading systems.</p>
 <p>버전 1.3부터 ​​Meteor는 ES2015 모듈을 완벽하게 지원합니다. ES2015 모듈 표준은 일반적으로 사용되는 JavaScript 모듈 형식 및 로딩 시스템 인 CommonJS 및 AMD를 대체합니다.</p>
-<p>버전 1.3부터 Meteor는 <a href="https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import" target="_blank" rel="external">ES2015 모듈</a>을 전폭 지원합니다. ES2015 모듈 표준은 일반적으로 사용되는 JavaScript 모듈 형식 및 로딩 시스템인 <a href="http://requirejs.org/docs/commonjs.html" target="_blank" rel="external">CommonJS</a> 및 <a href="https://github.com/amdjs/amdjs-api" target="_blank" rel="external">AMD</a>를 대체합니다. </p>
+<p>버전 1.3부터 Meteor는 <a href="https://developer.mozilla.org/en/docs/web/javascript/reference/statements/import" target="_blank" rel="external">ES2015 모듈</a>을 전폭 지원합니다. ES2015 모듈 표준은 일반적으로 사용되는 JavaScript 모듈 형식 및 로딩 시스템인 <a href="http://requirejs.org/docs/commonjs.html" target="_blank" rel="external">CommonJS</a> 및 <a href="https://github.com/amdjs/amdjs-api" target="_blank" rel="external">AMD</a>를 대체합니다.</p>
 <p>In ES2015, you can make variables available outside a file using the <code>export</code> keyword. To use the variables somewhere else, you must <code>import</code> them using the path to the source. Files that export some variables are called “modules”, because they represent a unit of reusable code. Explicitly importing the modules and packages you use helps you write your code in a modular way, avoiding the introduction of global symbols and “action at a distance”.</p>
 <p>ES2015에서는 export 키워드를 사용하여 파일 외부에서 변수를 사용할 수 있습니다. 다른 곳에서 변수를 사용하려면 소스에 대한 경로를 사용하여 변수를 가져와야합니다. 일부 변수를 내보내는 파일은 재사용 가능한 코드의 단위이기 때문에 “모듈”이라고합니다. 명시 적으로 모듈과 패키지를 가져 오면 코드를 모듈 방식으로 작성하여 전역 기호 및 “멀리에서의 조치”를 피할 수 있습니다.</p>
 <p>Since this is a new feature introduced in Meteor 1.3, you will find a lot of code online that uses the older, more centralized conventions built around packages and apps declaring global symbols. This old system still works, so to opt-in to the new module system, code must be placed inside the <code>imports/</code> directory in your application. We expect a future release of Meteor will turn on modules by default for all code, because this is more aligned with how developers in the wider JavaScript community write their code.</p>
